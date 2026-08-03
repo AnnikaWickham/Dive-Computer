@@ -14,7 +14,7 @@
 
 // Maps the depth of the dive in feet to the non-decompression limit (NDL) in minutes based on PADI dive tables.
 // Ex. ndlMap[70] = 40 means that at a depth of 70 feet, you have 40 minuites before you reach your NDL.
-const ndlMap = {
+const ndlTable = {
     35: 205,
     40: 140,
     50: 80,
@@ -30,7 +30,17 @@ const ndlMap = {
 }
 
 function getNDL(depth) {
-    return ndlMap[depth];
+    if (Number.isInteger(depth) && depth >= 35 && depth <= 140) {
+        let ndl = ndlTable[depth];
+        while (ndl == undefined) {
+            depth--;
+            ndl = ndlTable[depth];
+        }
+        return ndl;
+    } else {
+        console.log("Depth must be an integer between 35 and 140 feet.");
+        return null;
+    }
 }
 
 
@@ -42,6 +52,8 @@ function getNDL(depth) {
 const userArgument = process.argv[2];
 if (userArgument) {
     console.log(`NDL for ${userArgument} feet: ${getNDL(parseInt(userArgument))} minutes`);
+} else if (userArgument) {
+
 } else {
     console.log("Please provide an argument!");
 }
