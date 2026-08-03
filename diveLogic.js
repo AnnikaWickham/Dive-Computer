@@ -60,17 +60,18 @@ function calculateBufferTime(depth, bottomTime) {
     }
 }
 
+const slider = document.getElementById("depthSlider");
+const diver = document.getElementById("diver");
+const depthLabel = document.getElementById("depthLabel");
+const containerHeight = 400; // matches waterContainer height above
 
-// MAIN METHOD (GETTING USER INPUT FROM COMMAND LINE)
+slider.addEventListener("input", function () {
+  const depth = Number(slider.value);
+  depthLabel.innerText = "Depth: " + depth + " ft";
 
-// process.argv[0] is the Node path
-// process.argv[1] is the File path
-// process.argv[2] is your first custom argument
-const userArgument = process.argv[2];
-if (userArgument) {
-    console.log(`NDL for ${userArgument} feet: ${getNDL(parseInt(userArgument))} minutes`);
-} else if (userArgument) {
+  // convert depth (0-130) into a percentage of the container height
+  const percent = depth / slider.max;
+  const pixelPosition = percent * containerHeight;
 
-} else {
-    console.log("Please provide an argument!");
-}
+  diver.style.top = pixelPosition + "px";
+});
