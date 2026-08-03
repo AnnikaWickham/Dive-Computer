@@ -29,6 +29,9 @@ const ndlTable = {
     140: 18
 }
 
+// Returns the NDL for a given depth in feet. 
+// If the depth is not in the table, it will 
+// return the NDL for the next available shallower depth.
 function getNDL(depth) {
     if (Number.isInteger(depth) && depth >= 35 && depth <= 140) {
         let ndl = ndlTable[depth];
@@ -39,6 +42,23 @@ function getNDL(depth) {
         return ndl;
     } else {
         console.log("Depth must be an integer between 35 and 140 feet.");
+        return null;
+    }
+}
+
+// NOT CURRENTLY IN USE BC OF USER INPUT, THE NEXT THING TO DO IS MAKE A WINDOW 
+// WITH COOL BUTTONS AND INPUT FIELDS FOR DEPTH AND BOTTOM TIME, THEN CALCULATE NDL AND BUFFER TIME
+// Calculates the buffer time left based on the depth and bottom time of the dive.
+function calculateBufferTime(depth, bottomTime) {
+    const ndl = getNDL(depth);
+    if (bottomTime < ndl) {
+        console.log("You are within the NDL limit. You have buffer time left.");
+        return ndl - bottomTime;
+    } else if (bottomTime == ndl) {
+        console.log("You have reached your NDL limit.");
+        return 0;
+    } else {
+        console.log("Bottom time exceeds NDL. You are in decompression territory!");
         return null;
     }
 }
