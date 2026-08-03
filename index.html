@@ -38,7 +38,6 @@
 
     </style>
 </head>
-<script src="diveLogic.js"></script>
 <body>
     <header>
         <h1 class="bubbleFont" style="font-size: 4rem; margin-top: 2rem;">
@@ -49,13 +48,14 @@
     <main>
         <section tag="movingDiver">
             <div id="waterContainer" style="position: relative; height: 400px;">
-                <img id="diver" src="diver.png" style="position: absolute; left: 50%; transform: translateX(-50%); width: 40px;">
+                <img id="diver" src="diver.png" style="position: absolute; left: 10%; transform: translateX(-50%); width: 110px;">
             </div>
 
-            <input type="range" id="depthSlider" min="35" max="140" value="0">
-            <p id="depthLabel">Depth: 0 ft</p>
+            <input type="range" id="depthSlider" min="35" max="140" value="35" style="accent-color: #bd15ff;">
+            <p id="depthLabel" style="font-family: Coiny; font-size: large; color: #ffffff;">Depth: 35 ft</p>
         </section>
         
     </main>
+    <script src="diveLogic.js"></script>
 </body>
 </html>

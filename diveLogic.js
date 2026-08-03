@@ -4,9 +4,22 @@
 
 #       - THEN make it look super cool with a depth guage the fills as you input depth
 #       - A nitrogen tank that fills as you input the planned bottom time
+        - Add bubbles that rise from the scuba diver every 2ish seconds
+        - Add a link to the PADI dive tables for reference
 
 #       - SUPER FUTURE implement the actual physics and algs that PADI used to calc the tables
 #       - NDL can be affected by water temp, age, weight, gas mixture, exertion, and altitude.
+
+What the UI needs, concretely:
+Dive 1: depth + bottom time → shows a pressure group letter (top corner kinda hidden)
+A surface interval input (e.g. "how many hours/minutes did you wait")
+Dive 2: depth (another slider, or reuse the same one) → shows the adjusted NDL for this second dive, 
+clearly different from what a fresh dive to that depth would allow
+
+"After your first dive, if you wait X and go back down to Y feet, 
+ou actually only have Z minutes this time — not the usual NDL for that depth." 
+Comparison (fresh NDL vs. adjusted NDL) 
+
 */
 
 // Maps the depth of the dive in feet to the non-decompression limit (NDL) in minutes based on PADI dive tables.
@@ -68,10 +81,7 @@ const containerHeight = 400; // matches waterContainer height above
 slider.addEventListener("input", function () {
   const depth = Number(slider.value);
   depthLabel.innerText = "Depth: " + depth + " ft";
-
-  // convert depth (0-130) into a percentage of the container height
-  const percent = depth / slider.max;
+  const percent = (depth - slider.min) / (slider.max - slider.min);
   const pixelPosition = percent * containerHeight;
-
   diver.style.top = pixelPosition + "px";
 });
