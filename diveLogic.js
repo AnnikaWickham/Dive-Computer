@@ -1,7 +1,4 @@
-/* TODO  - Calculate NDL based on depth and dive tables
-#       - Take depth and planned bottom time as input and use the calculated NDL to see if 
-#       - you are within the NDL limit and how much buffer time you would have left.
-
+/* TODO  CREATE A COOL GUI WITH BUTTONS AND INPUTSS TO CALC NDL AND BUFFER TIME 
 #       - ONCE THATS DONE we try to calculate for repeate dives based on presssure groups, surface interval
 #       - we would calculate the new NDL based on the previous dive and surface interval.
 
