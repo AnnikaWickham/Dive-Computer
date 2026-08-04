@@ -7,9 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Coiny&display=swap" rel="stylesheet">
 
     <style>
+     /*   * {
+            outline: 1px solid red !important;
+        }*/
+
         h1 {
             text-align: center;
         }
+
         .bubbleFont {
             font-family: "Coiny", system-ui;
             font-style: normal;
@@ -23,6 +28,7 @@
             filter: drop-shadow(2px 6px 4px rgba(195, 251, 255, 0.6));
                 
         }
+
         body {
             /* Replace with your image file path or web URL */
             background-image: url('https://static.vecteezy.com/system/resources/thumbnails/038/000/283/small/ai-generated-sunlight-illuminating-the-surface-and-depths-of-the-blue-ocean-capturing-the-essence-of-summer-with-clear-waters-and-gentle-sea-waves-photo.jpg');     
@@ -36,23 +42,64 @@
             background-attachment: fixed; 
         }
 
+        .header-container {
+            display: flex; /* Lines up elements in a single horizontal row */
+            align-items: center; /* Vertically centers the buttons with the text */
+            justify-content: space-between; /* Pushes buttons to edges and centers the title */
+            gap: 15px; /* Adds clean spacing between elements so they don't touch */
+            width: 100%; /* Ensures the container spans full width */
+        }
+
+        .tabButton {
+            outline: 0.5px solid #4a90c2;
+            border: 0.5px solid #4a90c2;
+            cursor: pointer;
+            font-family: Coiny; 
+            font-size: large; 
+            color: #e8fdff; 
+            background-color: #202042; 
+            padding: 5px 25px; 
+            border-radius: 5px; 
+            margin-top: 0rem; 
+        }
+
+        .tabButton.active {
+            outline: 2px solid #4a90c2;
+            border: 0.5px solid #4a90c2;
+            font-family: Coiny; 
+            font-size: large; 
+            color: #e8fdff; 
+            background-color: #0b0b71; 
+            padding: 5px 25px; 
+            border-radius: 5px; 
+            margin-top: 0rem; 
+        }
+
     </style>
 </head>
 <body>
     <header>
-        <h1 class="bubbleFont" style="font-size: 4rem; margin-top: 2rem;">
-            Dive Computer
-        </h1>
+        <div class="header-container" style="height: 4rem;">
+            <button type="button" id="singleDiveBtn" class="tabButton active" style="margin-left: 2rem">Single Dive</button>
+            <h1 class="bubbleFont" style="font-size: 3rem; margin-top: 2rem;">Dive Planner</h1>
+            <button type="button" id="multiDiveBtn" class="tabButton" style="margin-right: 2rem;">Multi Dive</button>
+        </div>     
     </header>
 
     <main>
-        <section tag="movingDiver">
-            <div id="waterContainer" style="position: relative; height: 400px;">
-                <img id="diver" src="diver.png" style="position: absolute; left: 10%; transform: translateX(-50%); width: 110px;">
-            </div>
+        <section id="singleDive">
+            <section tag="movingDiver">
+                <div id="waterContainer" style="position: relative; height: 400px;">
+                    <img id="diver" src="diver.png" style="position: absolute; left: 10%; transform: translateX(-50%); width: 110px;">
+                </div>
 
-            <input type="range" id="depthSlider" min="35" max="140" value="35" style="accent-color: #bd15ff;">
-            <p id="depthLabel" style="font-family: Coiny; font-size: large; color: #ffffff;">Depth: 35 ft</p>
+                <input type="range" id="depthSlider" min="35" max="140" value="35" style="accent-color: #bd15ff;">
+                <p id="depthLabel" style="font-family: Coiny; font-size: large; color: #ffffff;">Depth: 35 ft</p>
+            </section>
+        </section>
+
+        <section id="multiDive">
+
         </section>
         
     </main>

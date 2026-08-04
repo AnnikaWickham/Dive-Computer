@@ -86,3 +86,24 @@ slider.addEventListener("input", function () {
   const pixelPosition = percent * containerHeight;
   diver.style.top = pixelPosition + "px";
 });
+
+const singleDiveBtn = document.getElementById("singleDiveBtn");
+const multiDiveBtn = document.getElementById("multiDiveBtn");
+const singleDive = document.getElementById("singleDive");
+const multiDive = document.getElementById("multiDive");
+
+singleDiveBtn.addEventListener("click", function () {
+  singleDive.style.display = "block";
+  multiDive.style.display = "none";
+
+  singleDiveBtn.classList.add("active");
+  multiDiveBtn.classList.remove("active");
+});
+
+multiDiveBtn.addEventListener("click", function () {
+  multiDive.style.display = "block";
+  singleDive.style.display = "none";
+
+  multiDiveBtn.classList.add("active");
+  singleDiveBtn.classList.remove("active");
+});
