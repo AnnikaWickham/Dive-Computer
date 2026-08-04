@@ -7,9 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Coiny&display=swap" rel="stylesheet">
 
     <style>
-     /*   * {
+        * {
             outline: 1px solid red !important;
-        }*/
+        }
 
         h1 {
             text-align: center;
@@ -47,7 +47,6 @@
             align-items: center; /* Vertically centers the buttons with the text */
             justify-content: space-between; /* Pushes buttons to edges and centers the title */
             gap: 15px; /* Adds clean spacing between elements so they don't touch */
-            width: 100%; /* Ensures the container spans full width */
         }
 
         .tabButton {
@@ -79,7 +78,7 @@
 </head>
 <body>
     <header>
-        <div class="header-container" style="height: 4rem;">
+        <div class="header-container" style="height: 4rem; width: 100%;">
             <button type="button" id="singleDiveBtn" class="tabButton active" style="margin-left: 2rem">Single Dive</button>
             <h1 class="bubbleFont" style="font-size: 3rem; margin-top: 2rem;">Dive Planner</h1>
             <button type="button" id="multiDiveBtn" class="tabButton" style="margin-right: 2rem;">Multi Dive</button>
@@ -89,11 +88,17 @@
     <main>
         <section id="singleDive">
             <section tag="movingDiver">
-                <div id="waterContainer" style="position: relative; height: 400px;">
-                    <img id="diver" src="diver.png" style="position: absolute; left: 10%; transform: translateX(-50%); width: 110px;">
+                <div id="waterContainer" style="position: relative; height: 500px;">
+                    <img id="diver" src="diver.png" style="position: absolute; left: 6%; transform: translateX(-50%); width: 110px;">
+                    <div class="header-container" style="height: 4rem; width: 28%; margin: auto;">
+                        <p style="font-family: Coiny; font-size: 2rem; color: #ffffff;">Dive Time</p>
+                        <div style="display: flex; flex-direction: column;">
+                            <label for="hours" style="font-family: Coiny; font-size: 1rem; color: #ffffff;">Hours:&nbsp&nbsp&nbsp&nbsp&nbsp<input type="number" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" name="hours" name="hours" min="0" max="99" placeholder="0" required></label>
+                            <label for="minutes" style="font-family: Coiny; font-size: 1rem; color: #ffffff;">Minutes: <input type="number" id="minutes" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" name="minutes" min="0" max="59" placeholder="00" required></label>
+                        </div>
+                    </div>
                 </div>
-
-                <input type="range" id="depthSlider" min="35" max="140" value="35" style="accent-color: #bd15ff;">
+                <input type="range" id="depthSlider" name="depth" min="35" max="140" value="35" style="accent-color: #bd15ff;">
                 <p id="depthLabel" style="font-family: Coiny; font-size: large; color: #ffffff;">Depth: 35 ft</p>
             </section>
         </section>
@@ -101,7 +106,9 @@
         <section id="multiDive">
 
         </section>
-        
+
+        <a href="https://a1scubadiving.com/wp-content/uploads/2018/06/PADI-Recreational-Dive-Table-Planner.pdf" class="tabButton" target="_blank" style="position: absolute; bottom: 10px; right: 10px;">PADI Dive Tables</a>
+
     </main>
     <script src="diveLogic.js"></script>
 </body>

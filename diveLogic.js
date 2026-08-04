@@ -7,6 +7,7 @@
 #       - A nitrogen tank that fills as you input the planned bottom time
         - Add bubbles that rise from the scuba diver every 2ish seconds
         - Add a link to the PADI dive tables for reference
+        - Add the underwater color scale that changes as you go deeper.
 
 #       - SUPER FUTURE implement the actual physics and algs that PADI used to calc the tables
 #       - NDL can be affected by water temp, age, weight, gas mixture, exertion, and altitude.
