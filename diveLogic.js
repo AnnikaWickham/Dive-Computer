@@ -79,10 +79,13 @@ const depthLabel = document.getElementById("depthLabel");
 const containerHeight = 400; 
 const ndlLabel = document.getElementById("ndlLabel");
 const ssLabel = document.getElementById("ssLabel");
+const dpLabel = document.getElementById("dpLabel");
+const colorLabel = document.getElementById("colorLabel");
 
 function updateAll() {
   const depth = Number(slider.value);
   depthLabel.innerText = "Depth: " + depth + " ft";
+  colorLabel.innerText = "Colors At Depth " + depth + "ft:";
   const percent = (depth - slider.min) / (slider.max - slider.min);
   const pixelPosition = percent * containerHeight;
   diver.style.top = pixelPosition + "px";

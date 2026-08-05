@@ -9,7 +9,7 @@
     <style>
         * {
             outline: 1px solid red !important;
-        }
+        } 
 
         h1 {
             text-align: center;
@@ -87,28 +87,51 @@
 
     <main>
         <section id="singleDive">
-            <section tag="movingDiver">
+            <section tag="everything">
                 <div id="waterContainer" style="position: relative; height: 500px;">
-                    <img id="diver" src="diver.png" style="position: absolute; left: 6%; transform: translateX(-50%); width: 110px;">
-                    <div class="header-container" style="height: 4rem; width: 30%; margin: auto;">
+                    <img id="diver" src="diver.png" style="position: absolute; left: 12.5%; transform: translateX(-50%); width: 110px;">
+                    <div class="header-container" style="height: 4rem; width: 50%; margin: auto;">
                         <p style="font-family: Coiny; font-size: 2rem; color: #ffffff;">Dive Time</p>
-                        <div style="display: flex; flex-direction: column;">
+                        <div style="display: flex; margin-right: 16rem; flex-direction: column;">
                             <label for="hours" style="font-family: Coiny; font-size: 1rem; color: #ffffff;">Hours:&nbsp&nbsp&nbsp&nbsp&nbsp<input type="number" id="hrIN" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" min="0" max="99" placeholder="0" required></label>
                             <label for="minutes" style="font-family: Coiny; font-size: 1rem; color: #ffffff;">Minutes: <input type="number" id="minIN" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" min="0" max="59" placeholder="00" required></label>
                         </div>
                     </div>
-                    <div class="header-container" style="height: 4rem; width: 30%; margin: auto;">
+                
+                    <div class="header-container" style="height: 4rem; width: 50%; margin: auto;">
                         <p id="ndlLabel" style="font-family: Coiny; font-size: 2rem; color: #ffffff;">NDL: 0 mins</p>
                     </div>
-                    <div class="header-container" style="height: 4rem; width: 30%; margin: auto;">
-                        <p id="ssLabel" style="font-family: Coiny; font-size: 1.5rem; color: #ffffff;">Safety Stop Recommended</p>
+                    <div class="header-container" style="height: 4rem; width: 50%; margin: auto;">
+                        <p id="ssLabel" style="font-family: Coiny; font-size: 1.6rem; color: #ffffff;">Safety Stop Recommended</p>
                     </div>
-                    <div class="header-container" style="height: 6rem; width: 30%; margin: auto;">
-                        <p id="dpLabel" style="font-family: Coiny; font-size: 1rem; color: #ffffff;">Your current dive plan looks good! Have a safe and fun dive! You have 205 minutes of buffer time.</p>
+                    <div class="header-container" style="height: 9rem; width: 50%; margin: auto;">
+                        <p id="dpLabel" style="width: 65%; font-family: Coiny; font-size: 1.3rem; color: #ffffff;">Your current dive plan looks good! Have a safe and fun dive! You have 205 minutes of buffer time.</p>
+                    </div>
+                    <div style="height: 16rem; width: 50%; margin: auto;">
+                        <p style="margin-top: 1.5rem; margin-bottom: 0rem; font-family: Coiny; font-size: 2rem; color: #ffffff;">Colors At The Surface:</p>
+                        <div class="header-container" style="height: 3rem; width: 85%;margin-top: 0rem;">
+                            <div style="width: 20%; height: 100%; background-color: #ff0000; border: 2px solid #ffffff;"></div>
+                            <div style="width: 20%; height: 100%; background-color: #ff7f00; border: 2px solid #ffffff;"></div>
+                            <div style="width: 20%; height: 100%; background-color: #ffff00; border: 2px solid #ffffff;"></div>
+                            <div style="width: 20%; height: 100%; background-color: #00ff00; border: 2px solid #ffffff;"></div>
+                            <div style="width: 20%; height: 100%; background-color: #0000ff; border: 2px solid #ffffff;"></div>
+                            <div style="width: 20%; height: 100%; background-color: #9500ff; border: 2px solid #ffffff;"></div>
+                            <div style="width: 20%; height: 100%; background-color: #ff00d4; border: 2px solid #ffffff;"></div>
+                        </div>
+                        <p id="colorLabel"style="margin-top: 1.5rem; margin-bottom: 0rem; font-family: Coiny; font-size: 2rem; color: #ffffff;">Colors At Depth 35ft:</p>
+                        <div class="header-container" style="height: 3rem; width: 85%; margin-top: 0rem;">
+                            <div style="width: 20%; height: 100%; background-color: #ff0000; border: 2px solid #ffffff;"></div>
+                            <div style="width: 20%; height: 100%; background-color: #ff7f00; border: 2px solid #ffffff;"></div>
+                            <div style="width: 20%; height: 100%; background-color: #ffff00; border: 2px solid #ffffff;"></div>
+                            <div style="width: 20%; height: 100%; background-color: #00ff00; border: 2px solid #ffffff;"></div>
+                            <div style="width: 20%; height: 100%; background-color: #0000ff; border: 2px solid #ffffff;"></div>
+                            <div style="width: 20%; height: 100%; background-color: #9500ff; border: 2px solid #ffffff;"></div>
+                            <div style="width: 20%; height: 100%; background-color: #ff00d4; border: 2px solid #ffffff;"></div>
+                        </div>
                     </div>
                 </div>
-                <input type="range" id="depthSlider" name="depth" min="35" max="140" value="35" style="accent-color: #bd15ff;">
-                <p id="depthLabel" style="font-family: Coiny; font-size: large; color: #ffffff;">Depth: 35 ft</p>
+                <input type="range" id="depthSlider" name="depth" min="35" max="140" value="35" style="accent-color: #bd15ff; width: 15%; margin-left: 5%;">
+                <p id="depthLabel" style="width: 25%; margin-top: 0.5rem; text-align: center; font-family: Coiny; font-size: 2rem; color: #ffffff;">Depth: 35 ft</p>
             </section>
         </section>
 
