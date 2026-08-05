@@ -62,15 +62,12 @@ function getNDL(depth) {
 // Calculates the buffer time left based on the depth and bottom time of the dive.
 function calculateBufferTime(depth, bottomTime) {
     const ndl = getNDL(depth);
-    if (bottomTime < ndl) {
-        console.log("You are within the NDL limit. You have buffer time left.");
-        return ndl - bottomTime;
-    } else if (bottomTime == ndl) {
-        console.log("You have reached your NDL limit.");
-        return 0;
+    if ((bottomTime+5) < ndl) {
+        return "Your current dive plan looks good! Have a safe and fun dive! You have " + (ndl - bottomTime) + " minutes of buffer time.";
+    } else if (bottomTime <= ndl) {
+        return "Your current dive plan is safe, but you are close to your NDL limit. You have " + (ndl - bottomTime) + " minutes of buffer time.";
     } else {
-        console.log("Bottom time exceeds NDL. You are in decompression territory!");
-        return null;
+        return "Your current dive plan is unsafe. You have exceeded your NDL limit by " + (bottomTime - ndl) + " minutes. Acend to a shallower depth or decrease dive time.";
     }
 }
 
@@ -93,6 +90,7 @@ function updateAll() {
   ndlLabel.innerText = "NDL: " + ndl + " mins";
   const bottomTime = getTimeInMins(Number(hrInput.value), Number(minInput.value));
   ssLabel.innerText = "" + safetyStopCheck(depth, bottomTime);
+  dpLabel.innerText = "" + calculateBufferTime(depth, bottomTime);
 }
 
 slider.addEventListener("input", updateAll);
