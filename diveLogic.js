@@ -38,7 +38,7 @@ const ndlTable = {
     110: 16,
     120: 13,
     130: 10,
-    140: 18
+    140: 8
 }
 
 // Returns the NDL for a given depth in feet. 
@@ -78,7 +78,8 @@ function calculateBufferTime(depth, bottomTime) {
 const slider = document.getElementById("depthSlider");
 const diver = document.getElementById("diver");
 const depthLabel = document.getElementById("depthLabel");
-const containerHeight = 400; // matches waterContainer height above
+const containerHeight = 400; 
+const ndlLabel = document.getElementById("ndlLabel");
 
 slider.addEventListener("input", function () {
   const depth = Number(slider.value);
@@ -86,6 +87,8 @@ slider.addEventListener("input", function () {
   const percent = (depth - slider.min) / (slider.max - slider.min);
   const pixelPosition = percent * containerHeight;
   diver.style.top = pixelPosition + "px";
+  const ndl = getNDL(depth);
+  ndlLabel.innerText = "NDL: " + ndl + " mins";
 });
 
 const singleDiveBtn = document.getElementById("singleDiveBtn");
