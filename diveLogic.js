@@ -6,7 +6,6 @@
 #       - THEN make it look super cool with a depth guage the fills as you input depth
 #       - A nitrogen tank that fills as you input the planned bottom time
         - Add bubbles that rise from the scuba diver every 2ish seconds
-        - Add a link to the PADI dive tables for reference
         - Add the underwater color scale that changes as you go deeper.
 
 #       - SUPER FUTURE implement the actual physics and algs that PADI used to calc the tables
@@ -39,32 +38,6 @@ const ndlTable = {
     120: 13,
     130: 10,
     140: 8
-}
-
-function safetyStopCheck(depth, bottomTime) {
-    if (depth >= 100) {
-        return "Safety Stop Required";
-    } else if (depth > 90 && bottomTime >= 22) {
-        return "Safety Stop Required";
-    } else if (depth > 80 && bottomTime >= 26) {
-        return "Safety Stop Required";
-    } else if (depth > 70 && bottomTime >= 35) {
-        return "Safety Stop Required";
-    } else if (depth > 60 && bottomTime >= 49) {
-        return "Safety Stop Required";
-    } else if (depth > 50 && bottomTime >= 67) {
-        return "Safety Stop Required";
-    } else if (depth > 40 && bottomTime >= 111) {
-        return "Safety Stop Required";
-    } else if (depth > 35 && bottomTime >= 152) {
-        return "Safety Stop Required";
-    } else {
-        return "Safety Stop Recommended";
-    }
-}
-
-function getTimeInMins(hours, minutes) {
-    return (hours * 60) + minutes;
 }
 
 // Returns the NDL for a given depth in feet. 
@@ -146,3 +119,29 @@ multiDiveBtn.addEventListener("click", function () {
   multiDiveBtn.classList.add("active");
   singleDiveBtn.classList.remove("active");
 });
+
+function safetyStopCheck(depth, bottomTime) {
+    if (depth >= 100) {
+        return "Safety Stop Required";
+    } else if (depth > 90 && bottomTime >= 22) {
+        return "Safety Stop Required";
+    } else if (depth > 80 && bottomTime >= 26) {
+        return "Safety Stop Required";
+    } else if (depth > 70 && bottomTime >= 35) {
+        return "Safety Stop Required";
+    } else if (depth > 60 && bottomTime >= 49) {
+        return "Safety Stop Required";
+    } else if (depth > 50 && bottomTime >= 67) {
+        return "Safety Stop Required";
+    } else if (depth > 40 && bottomTime >= 111) {
+        return "Safety Stop Required";
+    } else if (depth > 35 && bottomTime >= 152) {
+        return "Safety Stop Required";
+    } else {
+        return "Safety Stop Recommended";
+    }
+}
+
+function getTimeInMins(hours, minutes) {
+    return (hours * 60) + minutes;
+}
