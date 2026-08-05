@@ -41,6 +41,32 @@ const ndlTable = {
     140: 8
 }
 
+function safetyStopCheck(depth, bottomTime) {
+    if (depth >= 100) {
+        return "Safety Stop Required";
+    } else if (depth > 90 && bottomTime >= 22) {
+        return "Safety Stop Required";
+    } else if (depth > 80 && bottomTime >= 26) {
+        return "Safety Stop Required";
+    } else if (depth > 70 && bottomTime >= 35) {
+        return "Safety Stop Required";
+    } else if (depth > 60 && bottomTime >= 49) {
+        return "Safety Stop Required";
+    } else if (depth > 50 && bottomTime >= 67) {
+        return "Safety Stop Required";
+    } else if (depth > 40 && bottomTime >= 111) {
+        return "Safety Stop Required";
+    } else if (depth > 35 && bottomTime >= 152) {
+        return "Safety Stop Required";
+    } else {
+        return "Safety Stop Recommended";
+    }
+}
+
+function getTimeInMins(hours, minutes) {
+    return (hours * 60) + minutes;
+}
+
 // Returns the NDL for a given depth in feet. 
 // If the depth is not in the table, it will 
 // return the NDL for the next available shallower depth.
@@ -76,12 +102,15 @@ function calculateBufferTime(depth, bottomTime) {
 }
 
 const slider = document.getElementById("depthSlider");
+const minInput = document.getElementById("minIN");
+const hrInput = document.getElementById("hrIN");
 const diver = document.getElementById("diver");
 const depthLabel = document.getElementById("depthLabel");
 const containerHeight = 400; 
 const ndlLabel = document.getElementById("ndlLabel");
+const ssLabel = document.getElementById("ssLabel");
 
-slider.addEventListener("input", function () {
+function updateAll() {
   const depth = Number(slider.value);
   depthLabel.innerText = "Depth: " + depth + " ft";
   const percent = (depth - slider.min) / (slider.max - slider.min);
@@ -89,7 +118,13 @@ slider.addEventListener("input", function () {
   diver.style.top = pixelPosition + "px";
   const ndl = getNDL(depth);
   ndlLabel.innerText = "NDL: " + ndl + " mins";
-});
+  const bottomTime = getTimeInMins(Number(hrInput.value), Number(minInput.value));
+  ssLabel.innerText = "" + safetyStopCheck(depth, bottomTime);
+}
+
+slider.addEventListener("input", updateAll);
+minInput.addEventListener("input", updateAll);
+hrInput.addEventListener("input", updateAll);
 
 const singleDiveBtn = document.getElementById("singleDiveBtn");
 const multiDiveBtn = document.getElementById("multiDiveBtn");

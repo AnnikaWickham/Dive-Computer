@@ -90,15 +90,18 @@
             <section tag="movingDiver">
                 <div id="waterContainer" style="position: relative; height: 500px;">
                     <img id="diver" src="diver.png" style="position: absolute; left: 6%; transform: translateX(-50%); width: 110px;">
-                    <div class="header-container" style="height: 4rem; width: 28%; margin: auto;">
+                    <div class="header-container" style="height: 4rem; width: 30%; margin: auto;">
                         <p style="font-family: Coiny; font-size: 2rem; color: #ffffff;">Dive Time</p>
                         <div style="display: flex; flex-direction: column;">
-                            <label for="hours" style="font-family: Coiny; font-size: 1rem; color: #ffffff;">Hours:&nbsp&nbsp&nbsp&nbsp&nbsp<input type="number" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" name="hours" name="hours" min="0" max="99" placeholder="0" required></label>
-                            <label for="minutes" style="font-family: Coiny; font-size: 1rem; color: #ffffff;">Minutes: <input type="number" id="minutes" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" name="minutes" min="0" max="59" placeholder="00" required></label>
+                            <label for="hours" style="font-family: Coiny; font-size: 1rem; color: #ffffff;">Hours:&nbsp&nbsp&nbsp&nbsp&nbsp<input type="number" id="hrIN" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" min="0" max="99" placeholder="0" required></label>
+                            <label for="minutes" style="font-family: Coiny; font-size: 1rem; color: #ffffff;">Minutes: <input type="number" id="minIN" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" min="0" max="59" placeholder="00" required></label>
                         </div>
                     </div>
-                    <div class="header-container" style="height: 4rem; width: 28%; margin: auto;">
+                    <div class="header-container" style="height: 4rem; width: 30%; margin: auto;">
                         <p id="ndlLabel" style="font-family: Coiny; font-size: 2rem; color: #ffffff;">NDL: 0 mins</p>
+                    </div>
+                    <div class="header-container" style="height: 4rem; width: 30%; margin: auto;">
+                        <p id="ssLabel" style="font-family: Coiny; font-size: 1.5rem; color: #ffffff;">Safety Stop Recommended</p>
                     </div>
                 </div>
                 <input type="range" id="depthSlider" name="depth" min="35" max="140" value="35" style="accent-color: #bd15ff;">
