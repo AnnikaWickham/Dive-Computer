@@ -1,12 +1,9 @@
 /* TODO  CREATE A COOL GUI WITH BUTTONS AND INPUTSS TO CALC NDL AND BUFFER TIME 
 #       - ONCE THATS DONE we try to calculate for repeate dives based on presssure groups, surface interval
 #       - we would calculate the new NDL based on the previous dive and surface interval.
-        - put whether or not a safety stop is required
 
-#       - THEN make it look super cool with a depth guage the fills as you input depth
 #       - A nitrogen tank that fills as you input the planned bottom time
         - Add bubbles that rise from the scuba diver every 2ish seconds
-        - Add the underwater color scale that changes as you go deeper.
 
 #       - SUPER FUTURE implement the actual physics and algs that PADI used to calc the tables
 #       - NDL can be affected by water temp, age, weight, gas mixture, exertion, and altitude.
