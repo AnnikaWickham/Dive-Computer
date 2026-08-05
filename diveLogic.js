@@ -71,6 +71,43 @@ function calculateBufferTime(depth, bottomTime) {
     }
 }
 
+function lerpColor(startColor, endColor, percent) {
+  const r = Math.round(startColor.r + (endColor.r - startColor.r) * percent);
+  const g = Math.round(startColor.g + (endColor.g - startColor.g) * percent);
+  const b = Math.round(startColor.b + (endColor.b - startColor.b) * percent);
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
+function getDepthColor(color, depth) {
+  const percent = (depth - 35) / (105);
+  let startColor, endColor;
+
+  if (color == "red") {
+    startColor = { r: 91, g: 67, b: 131 }; // red
+    endColor = { r: 10, g: 7, b: 58 };
+  } else if (color == "orange") {
+    startColor = { r: 245, g: 195, b: 179 }; // orange
+    endColor = { r: 174, g: 115, b: 126 };
+  } else if (color == "yellow") {
+    startColor = { r: 3, g: 254, b: 240 }; // yellow
+    endColor = { r: 3, g: 139, b: 201 };
+  } else if (color == "green") {
+    startColor = { r: 0, g: 255, b: 249 }; // green
+    endColor = { r: 0, g: 186, b: 185 };
+  } else if (color == "blue") {
+    startColor = { r: 56, g: 94, b: 252 }; // blue
+    endColor = { r: 34, g: 23, b: 245 };
+  } else if (color == "purple") {
+    startColor = { r: 10, g: 8, b: 187 }; // purple
+    endColor = { r: 22, g: 3, b: 221 };
+  } else if (color == "pink") {
+    startColor = { r: 224, g: 91, b: 214 }; //pink
+    endColor = { r: 180, g: 34, b: 199 };
+  }
+
+  return lerpColor(startColor, endColor, percent);
+}
+
 const slider = document.getElementById("depthSlider");
 const minInput = document.getElementById("minIN");
 const hrInput = document.getElementById("hrIN");
@@ -81,6 +118,13 @@ const ndlLabel = document.getElementById("ndlLabel");
 const ssLabel = document.getElementById("ssLabel");
 const dpLabel = document.getElementById("dpLabel");
 const colorLabel = document.getElementById("colorLabel");
+const redC = document.getElementById("redBox");
+const orangeC = document.getElementById("orangeBox");
+const yellowC = document.getElementById("yellowBox");
+const greenC = document.getElementById("greenBox");
+const blueC = document.getElementById("blueBox");
+const purpleC = document.getElementById("purpleBox");
+const pinkC = document.getElementById("pinkBox");
 
 function updateAll() {
   const depth = Number(slider.value);
@@ -94,6 +138,13 @@ function updateAll() {
   const bottomTime = getTimeInMins(Number(hrInput.value), Number(minInput.value));
   ssLabel.innerText = "" + safetyStopCheck(depth, bottomTime);
   dpLabel.innerText = "" + calculateBufferTime(depth, bottomTime);
+  redC.style.backgroundColor = getDepthColor("red", depth);
+  orangeC.style.backgroundColor = getDepthColor("orange", depth);
+  yellowC.style.backgroundColor = getDepthColor("yellow", depth);
+  greenC.style.backgroundColor = getDepthColor("green", depth);
+  blueC.style.backgroundColor = getDepthColor("blue", depth);
+  purpleC.style.backgroundColor = getDepthColor("purple", depth);
+  pinkC.style.backgroundColor = getDepthColor("pink", depth);
 }
 
 slider.addEventListener("input", updateAll);
