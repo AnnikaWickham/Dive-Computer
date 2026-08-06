@@ -80,13 +80,13 @@ function getDepthColor(color, depth) {
   let startColor, endColor;
 
   if (color == "red") {
-    startColor = { r: 91, g: 67, b: 131 }; // red
+    startColor = { r: 139, g: 75, b: 140 }; // red
     endColor = { r: 10, g: 7, b: 58 };
   } else if (color == "orange") {
     startColor = { r: 245, g: 195, b: 179 }; // orange
     endColor = { r: 174, g: 115, b: 126 };
   } else if (color == "yellow") {
-    startColor = { r: 3, g: 254, b: 240 }; // yellow
+    startColor = { r: 193, g: 255, b: 230 }; // yellow
     endColor = { r: 3, g: 139, b: 201 };
   } else if (color == "green") {
     startColor = { r: 0, g: 255, b: 249 }; // green
