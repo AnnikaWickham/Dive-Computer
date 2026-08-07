@@ -305,5 +305,77 @@ function pgTransformer(pg, surfaceInterval) {
         } else {
             return "H";
         }
+    } else if (pg == "I") {
+        if (surfaceInterval > 294) {
+            return "0";
+        } else if (surfaceInterval > 113) {
+            return "A";
+        } else if (surfaceInterval > 65) {
+            return "B";
+        } else if (surfaceInterval > 43) {
+            return "C";
+        } else if (surfaceInterval > 34) {
+            return "D";
+        } else if (surfaceInterval > 26) {
+            return "E";
+        } else if (surfaceInterval > 18) {
+            return "F";
+        } else if (surfaceInterval > 11) {
+            return "G";
+        } else if (surfaceInterval > 5) {
+            return "H";
+        } else {
+            return "I";
+        }
+    } else if (pg == "J") {
+        if (surfaceInterval > 300) {
+            return "0";
+        } else if (surfaceInterval > 119) {
+            return "A";
+        } else if (surfaceInterval > 71) {
+            return "B";
+        } else if (surfaceInterval > 49) {
+            return "C";
+        } else if (surfaceInterval > 40) {
+            return "D";
+        } else if (surfaceInterval > 31) {
+            return "E";
+        } else if (surfaceInterval > 24) {
+            return "F";
+        } else if (surfaceInterval > 17) {
+            return "G";
+        } else if (surfaceInterval > 11) {
+            return "H";
+        } else if (surfaceInterval > 5) {
+            return "I";
+        } else {
+            return "J";
+        }
+    } else if (pg == "K") {
+        if (surfaceInterval > 305) {
+            return "0";
+        } else if (surfaceInterval > 124) {
+            return "A";
+        } else if (surfaceInterval > 76) {
+            return "B";
+        } else if (surfaceInterval > 54) {
+            return "C";
+        } else if (surfaceInterval > 45) {
+            return "D";
+        } else if (surfaceInterval > 37) {
+            return "E";
+        } else if (surfaceInterval > 29) {
+            return "F";
+        } else if (surfaceInterval > 22) {
+            return "G";
+        } else if (surfaceInterval > 16) {
+            return "H";
+        } else if (surfaceInterval > 10) {
+            return "I";
+        } else if (surfaceInterval > 4) {
+            return "J";
+        } else {
+            return "K";
+        }
     }
 }
