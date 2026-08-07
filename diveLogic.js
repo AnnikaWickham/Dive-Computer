@@ -413,6 +413,248 @@ function getPG(depth, bottomTime) {
         } else {
             return "0";
         }
+    } else if (depth <= 70) {
+        if (bottomTime >= 40) {
+            return "T";
+        } else if (bottomTime >= 38) {
+            return "S";
+        } else if (bottomTime >= 36) {
+            return "R";
+        } else if (bottomTime >= 35) {
+            return "Q";
+        } else if (bottomTime >= 33) {
+            return "P";
+        } else if (bottomTime >= 31) {
+            return "O";
+        } else if (bottomTime >= 29) {
+            return "N";
+        } else if (bottomTime >= 27) {
+            return "M";
+        } else if (bottomTime >= 26) {
+            return "L";
+        } else if (bottomTime >= 24) {
+            return "K";
+        } else if (bottomTime >= 22) {
+            return "J";
+        } else if (bottomTime >= 21) {
+            return "I";
+        } else if (bottomTime >= 19) {
+            return "H";
+        } else if (bottomTime >= 18) {
+            return "G";
+        } else if (bottomTime >= 17) {
+            return "F";
+        } else if (bottomTime >= 15) {
+            return "E";
+        } else if (bottomTime >= 13) {
+            return "D";
+        } else if (bottomTime >= 12) {
+            return "C";
+        } else if (bottomTime >= 9) {
+            return "B";
+        } else if (bottomTime >= 5) {
+            return "A";
+        } else {
+            return "0";
+        }
+    } else if (depth <= 80) {
+        if (bottomTime >= 30) {
+            return "R";
+        } else if (bottomTime >= 29) {
+            return "Q";
+        } else if (bottomTime >= 28) {
+            return "P";
+        } else if (bottomTime >= 26) {
+            return "O";
+        } else if (bottomTime >= 25) {
+            return "N";
+        } else if (bottomTime >= 23) {
+            return "M";
+        } else if (bottomTime >= 22) {
+            return "L";
+        } else if (bottomTime >= 21) {
+            return "K";
+        } else if (bottomTime >= 19) {
+            return "J";
+        } else if (bottomTime >= 18) {
+            return "I";
+        } else if (bottomTime >= 17) {
+            return "H";
+        } else if (bottomTime >= 15) {
+            return "G";
+        } else if (bottomTime >= 14) {
+            return "F";
+        } else if (bottomTime >= 13) {
+            return "E";
+        } else if (bottomTime >= 11) {
+            return "D";
+        } else if (bottomTime >= 10) {
+            return "C";
+        } else if (bottomTime >= 8) {
+            return "B";
+        } else if (bottomTime >= 4) {
+            return "A";
+        } else {
+            return "0";
+        }
+    } else if (depth <= 90) {
+        if (bottomTime >= 25) {
+            return "Q";
+        } else if (bottomTime >= 24) {
+            return "P";
+        } else if (bottomTime >= 23) {
+            return "O";
+        } else if (bottomTime >= 22) {
+            return "N";
+        } else if (bottomTime >= 21) {
+            return "M";
+        } else if (bottomTime >= 19) {
+            return "L";
+        } else if (bottomTime >= 18) {
+            return "K";
+        } else if (bottomTime >= 17) {
+            return "J";
+        } else if (bottomTime >= 16) {
+            return "I";
+        } else if (bottomTime >= 15) {
+            return "H";
+        } else if (bottomTime >= 13) {
+            return "G";
+        } else if (bottomTime >= 12) {
+            return "F";
+        } else if (bottomTime >= 11) {
+            return "E";
+        } else if (bottomTime >= 10) {
+            return "D";
+        } else if (bottomTime >= 9) {
+            return "C";
+        } else if (bottomTime >= 7) {
+            return "B";
+        } else if (bottomTime >= 4) {
+            return "A";
+        } else {
+            return "0";
+        }
+    } else if (depth <= 100) {
+        if (bottomTime >= 20) {
+            return "O";
+        } else if (bottomTime >= 19) {
+            return "N";
+        } else if (bottomTime >= 18) {
+            return "M";
+        } else if (bottomTime >= 17) {
+            return "L";
+        } else if (bottomTime >= 16) {
+            return "K";
+        } else if (bottomTime >= 15) {
+            return "J";
+        } else if (bottomTime >= 14) {
+            return "I";
+        } else if (bottomTime >= 13) {
+            return "H";
+        } else if (bottomTime >= 12) {
+            return "G";
+        } else if (bottomTime >= 11) {
+            return "F";
+        } else if (bottomTime >= 10) {
+            return "E";
+        } else if (bottomTime >= 9) {
+            return "D";
+        } else if (bottomTime >= 8) {
+            return "C";
+        } else if (bottomTime >= 6) {
+            return "B";
+        } else if (bottomTime >= 3) {
+            return "A";
+        } else {
+            return "0";
+        }
+    } else if (depth <= 110) {
+        if (bottomTime >= 16) {
+            return "M";
+        } else if (bottomTime >= 15) {
+            return "L";
+        } else if (bottomTime >= 14) {
+            return "K";
+        } else if (bottomTime >= 13) {
+            return "I";
+        } else if (bottomTime >= 12) {
+            return "H";
+        } else if (bottomTime >= 11) {
+            return "G";
+        } else if (bottomTime >= 10) {
+            return "F";
+        } else if (bottomTime >= 9) {
+            return "E";
+        } else if (bottomTime >= 8) {
+            return "D";
+        } else if (bottomTime >= 7) {
+            return "C";
+        } else if (bottomTime >= 6) {
+            return "B";
+        } else if (bottomTime >= 3) {
+            return "A";
+        } else {
+            return "0";
+        }
+    } else if (depth <= 120) {
+        if (bottomTime >= 13) {
+            return "K";
+        } else if (bottomTime >= 12) {
+            return "J";
+        } else if (bottomTime >= 11) {
+            return "H";
+        } else if (bottomTime >= 10) {
+            return "G";
+        } else if (bottomTime >= 9) {
+            return "F";
+        } else if (bottomTime >= 8) {
+            return "E";
+        } else if (bottomTime >= 7) {
+            return "D";
+        } else if (bottomTime >= 6) {
+            return "C";
+        } else if (bottomTime >= 5) {
+            return "B";
+        } else if (bottomTime >= 3) {
+            return "A";
+        } else {
+            return "0";
+        }
+    } else if (depth <= 130) {
+        if (bottomTime >= 10) {
+            return "H";
+        } else if (bottomTime >= 9) {
+            return "G";
+        } else if (bottomTime >= 8) {
+            return "F";
+        } else if (bottomTime >= 7) {
+            return "D";
+        } else if (bottomTime >= 6) {
+            return "C";
+        } else if (bottomTime >= 5) {
+            return "B";
+        } else if (bottomTime >= 3) {
+            return "A";
+        } else {
+            return "0";
+        }
+    } else {
+        if (bottomTime >= 8) {
+            return "F";
+        } else if (bottomTime >= 7) {
+            return "E";
+        } else if (bottomTime >= 6) {
+            return "D";
+        } else if (bottomTime >= 5) {
+            return "C";
+        } else if (bottomTime >= 4) {
+            return "B";
+        } else if (bottomTime >= 0) {
+            return "A";
+        } else {
+            return "0";
+        }
     }
 }
 
