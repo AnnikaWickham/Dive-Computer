@@ -615,5 +615,91 @@ function pgTransformer(pg, surfaceInterval) {
         } else {
             return "R";
         }
+    } else if (pg == "S") {
+        if (surfaceInterval > 339) {
+            return "0";
+        } else if (surfaceInterval > 158) {
+            return "A";
+        } else if (surfaceInterval > 109) {
+            return "B";
+        } else if (surfaceInterval > 87) {
+            return "C";
+        } else if (surfaceInterval > 78) {
+            return "D";
+        } else if (surfaceInterval > 70) {
+            return "E";
+        } else if (surfaceInterval > 63) {
+            return "F";
+        } else if (surfaceInterval > 56) {
+            return "G";
+        } else if (surfaceInterval > 49) {
+            return "H";
+        } else if (surfaceInterval > 43) {
+            return "I";
+        } else if (surfaceInterval > 38) {
+            return "J";
+        } else if (surfaceInterval > 32) {
+            return "K";
+        } else if (surfaceInterval > 27) {
+            return "L";
+        } else if (surfaceInterval > 23) {
+            return "M";
+        } else if (surfaceInterval > 18) {
+            return "N";
+        } else if (surfaceInterval > 14) {
+            return "O";
+        } else if (surfaceInterval > 10) {
+            return "P";
+        } else if (surfaceInterval > 6) {
+            return "Q";
+        } else if (surfaceInterval > 3) {
+            return "R";
+        } else {
+            return "S";
+        }
+    } else if (pg == "T") {
+        if (surfaceInterval > 342) {
+            return "0";
+        } else if (surfaceInterval > 161) {
+            return "A";
+        } else if (surfaceInterval > 113) {
+            return "B";
+        } else if (surfaceInterval > 91) {
+            return "C";
+        } else if (surfaceInterval > 82) {
+            return "D";
+        } else if (surfaceInterval > 73) {
+            return "E";
+        } else if (surfaceInterval > 66) {
+            return "F";
+        } else if (surfaceInterval > 59) {
+            return "G";
+        } else if (surfaceInterval > 53) {
+            return "H";
+        } else if (surfaceInterval > 47) {
+            return "I";
+        } else if (surfaceInterval > 41) {
+            return "J";
+        } else if (surfaceInterval > 36) {
+            return "K";
+        } else if (surfaceInterval > 31) {
+            return "L";
+        } else if (surfaceInterval > 26) {
+            return "M";
+        } else if (surfaceInterval > 22) {
+            return "N";
+        } else if (surfaceInterval > 17) {
+            return "O";
+        } else if (surfaceInterval > 13) {
+            return "P";
+        } else if (surfaceInterval > 10) {
+            return "Q";
+        } else if (surfaceInterval > 6) {
+            return "R";
+        } else if (surfaceInterval > 2) {
+            return "S";
+        } else {
+            return "T";
+        }
     }
 }
