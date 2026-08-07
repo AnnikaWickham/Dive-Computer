@@ -195,3 +195,35 @@ function safetyStopCheck(depth, bottomTime) {
 function getTimeInMins(hours, minutes) {
     return (hours * 60) + minutes;
 }
+
+// This function takes the current pressure group and outputs the new pressure group based on the surface interval.
+// Values straight from the PADI dive table. 
+// INPUTS: pg = current pressure group (A-Z), surfaceInterval = time in mins
+// OUTPUT: new pressure group (A-Z) OR "0" if the diver is fully off-gassed
+function pgTransformer(pg, surfaceInterval) {
+    if (pg == "A") {
+        if (surfaceInterval > 3) {
+            return "0";
+        } else {
+            return "A";
+        }
+    } else if (pg == "B") {
+        if (surfaceInterval > 228) {
+            return "0";
+        } else if (surfaceInterval > 47) {
+            return "A";
+        } else {
+            return "B";
+        }
+    } else if (pg == "C") {
+        if (surfaceInterval > 250) {
+            return "0";
+        } else if (surfaceInterval > 69) {
+            return "A";
+        } else if (surfaceInterval > 21) {
+            return "B";
+        } else {
+            return "C";
+        }
+    } 
+}
