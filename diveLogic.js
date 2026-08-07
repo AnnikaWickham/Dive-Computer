@@ -377,5 +377,63 @@ function pgTransformer(pg, surfaceInterval) {
         } else {
             return "K";
         }
+    } else if (pg == "L") {
+        if (surfaceInterval > 310) {
+            return "0";
+        } else if (surfaceInterval > 129) {
+            return "A";
+        } else if (surfaceInterval > 81) {
+            return "B";
+        } else if (surfaceInterval > 59) {
+            return "C";
+        } else if (surfaceInterval > 50) {
+            return "D";
+        } else if (surfaceInterval > 42) {
+            return "E";
+        } else if (surfaceInterval > 34) {
+            return "F";
+        } else if (surfaceInterval > 27) {
+            return "G";
+        } else if (surfaceInterval > 21) {
+            return "H";
+        } else if (surfaceInterval > 15) {
+            return "I";
+        } else if (surfaceInterval > 9) {
+            return "J";
+        } else if (surfaceInterval > 4) {
+            return "K";
+        } else {
+            return "L";
+        }
+    } else if (pg == "M") {
+        if (surfaceInterval > 315) {
+            return "0";
+        } else if (surfaceInterval > 134) {
+            return "A";
+        } else if (surfaceInterval > 85) {
+            return "B";
+        } else if (surfaceInterval > 64) {
+            return "C";
+        } else if (surfaceInterval > 55) {
+            return "D";
+        } else if (surfaceInterval > 46) {
+            return "E";
+        } else if (surfaceInterval > 39) {
+            return "F";
+        } else if (surfaceInterval > 32) {
+            return "G";
+        } else if (surfaceInterval > 25) {
+            return "H";
+        } else if (surfaceInterval > 19) {
+            return "I";
+        } else if (surfaceInterval > 14) {
+            return "J";
+        } else if (surfaceInterval > 9) {
+            return "K";
+        } else if (surfaceInterval > 4) {
+            return "L";
+        } else {
+            return "M";
+        }
     }
 }
