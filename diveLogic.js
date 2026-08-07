@@ -701,5 +701,311 @@ function pgTransformer(pg, surfaceInterval) {
         } else {
             return "T";
         }
+    } else if (pg == "U") {
+        if (surfaceInterval > 345) {
+            return "0";
+        } else if (surfaceInterval > 164) {
+            return "A";
+        } else if (surfaceInterval > 116) {
+            return "B";
+        } else if (surfaceInterval > 94) {
+            return "C";
+        } else if (surfaceInterval > 85) {
+            return "D";
+        } else if (surfaceInterval > 77) {
+            return "E";
+        } else if (surfaceInterval > 69) {
+            return "F";
+        } else if (surfaceInterval > 62) {
+            return "G";
+        } else if (surfaceInterval > 56) {
+            return "H";
+        } else if (surfaceInterval > 50) {
+            return "I";
+        } else if (surfaceInterval > 44) {
+            return "J";
+        } else if (surfaceInterval > 39) {
+            return "K";
+        } else if (surfaceInterval > 34) {
+            return "L";
+        } else if (surfaceInterval > 29) {
+            return "M";
+        } else if (surfaceInterval > 25) {
+            return "N";
+        } else if (surfaceInterval > 21) {
+            return "O";
+        } else if (surfaceInterval > 17) {
+            return "P";
+        } else if (surfaceInterval > 13) {
+            return "Q";
+        } else if (surfaceInterval > 9) {
+            return "R";
+        } else if (surfaceInterval > 6) {
+            return "S";
+        } else if (surfaceInterval > 2) {
+            return "T";
+        } else {
+            return "U";
+        }
+    } else if (pg == "V") {
+        if (surfaceInterval > 348) {
+            return "0";
+        } else if (surfaceInterval > 167) {
+            return "A";
+        } else if (surfaceInterval > 119) {
+            return "B";
+        } else if (surfaceInterval > 97) {
+            return "C";
+        } else if (surfaceInterval > 88) {
+            return "D";
+        } else if (surfaceInterval > 80) {
+            return "E";
+        } else if (surfaceInterval > 72) {
+            return "F";
+        } else if (surfaceInterval > 65) {
+            return "G";
+        } else if (surfaceInterval > 59) {
+            return "H";
+        } else if (surfaceInterval > 53) {
+            return "I";
+        } else if (surfaceInterval > 47) {
+            return "J";
+        } else if (surfaceInterval > 42) {
+            return "K";
+        } else if (surfaceInterval > 37) {
+            return "L";
+        } else if (surfaceInterval > 33) {
+            return "M";
+        } else if (surfaceInterval > 28) {
+            return "N";
+        } else if (surfaceInterval > 24) {
+            return "O";
+        } else if (surfaceInterval > 20) {
+            return "P";
+        } else if (surfaceInterval > 16) {
+            return "Q";
+        } else if (surfaceInterval > 12) {
+            return "R";
+        } else if (surfaceInterval > 9) {
+            return "S";
+        } else if (surfaceInterval > 5) {
+            return "T";
+        } else if (surfaceInterval > 2) {
+            return "U";
+        } else {
+            return "V";
+        }
+    } else if (pg == "W") {
+        if (surfaceInterval > 351) {
+            return "0";
+        } else if (surfaceInterval > 170) {
+            return "A";
+        } else if (surfaceInterval > 122) {
+            return "B";
+        } else if (surfaceInterval > 100) {
+            return "C";
+        } else if (surfaceInterval > 91) {
+            return "D";
+        } else if (surfaceInterval > 83) {
+            return "E";
+        } else if (surfaceInterval > 75) {
+            return "F";
+        } else if (surfaceInterval > 68) {
+            return "G";
+        } else if (surfaceInterval > 62) {
+            return "H";
+        } else if (surfaceInterval > 56) {
+            return "I";
+        } else if (surfaceInterval > 50) {
+            return "J";
+        } else if (surfaceInterval > 45) {
+            return "K";
+        } else if (surfaceInterval > 40) {
+            return "L";
+        } else if (surfaceInterval > 36) {
+            return "M";
+        } else if (surfaceInterval > 31) {
+            return "N";
+        } else if (surfaceInterval > 27) {
+            return "O";
+        } else if (surfaceInterval > 23) {
+            return "P";
+        } else if (surfaceInterval > 19) {
+            return "Q";
+        } else if (surfaceInterval > 15) {
+            return "R";
+        } else if (surfaceInterval > 12) {
+            return "S";
+        } else if (surfaceInterval > 8) {
+            return "T";
+        } else if (surfaceInterval > 5) {
+            return "U";
+        } else if (surfaceInterval > 2) {
+            return "V";
+        } else {
+            return "W";
+        }
+    } else if (pg == "X") {
+        if (surfaceInterval > 354) {
+            return "0";
+        } else if (surfaceInterval > 173) {
+            return "A";
+        } else if (surfaceInterval > 125) {
+            return "B";
+        } else if (surfaceInterval > 103) {
+            return "C";
+        } else if (surfaceInterval > 94) {
+            return "D";
+        } else if (surfaceInterval > 86) {
+            return "E";
+        } else if (surfaceInterval > 78) {
+            return "F";
+        } else if (surfaceInterval > 71) {
+            return "G";
+        } else if (surfaceInterval > 65) {
+            return "H";
+        } else if (surfaceInterval > 59) {
+            return "I";
+        } else if (surfaceInterval > 53) {
+            return "J";
+        } else if (surfaceInterval > 48) {
+            return "K";
+        } else if (surfaceInterval > 43) {
+            return "L";
+        } else if (surfaceInterval > 39) {
+            return "M";
+        } else if (surfaceInterval > 34) {
+            return "N";
+        } else if (surfaceInterval > 30) {
+            return "O";
+        } else if (surfaceInterval > 26) {
+            return "P";
+        } else if (surfaceInterval > 22) {
+            return "Q";
+        } else if (surfaceInterval > 18) {
+            return "R";
+        } else if (surfaceInterval > 15) {
+            return "S";
+        } else if (surfaceInterval > 11) {
+            return "T";
+        } else if (surfaceInterval > 8) {
+            return "U";
+        } else if (surfaceInterval > 5) {
+            return "V";
+        } else if (surfaceInterval > 2) {
+            return "W";
+        } else {
+            return "X";
+        }
+    } else if (pg == "Y") {
+        if (surfaceInterval > 357) {
+            return "0";
+        } else if (surfaceInterval > 176) {
+            return "A";
+        } else if (surfaceInterval > 128) {
+            return "B";
+        } else if (surfaceInterval > 106) {
+            return "C";
+        } else if (surfaceInterval > 97) {
+            return "D";
+        } else if (surfaceInterval > 89) {
+            return "E";
+        } else if (surfaceInterval > 81) {
+            return "F";
+        } else if (surfaceInterval > 74) {
+            return "G";
+        } else if (surfaceInterval > 68) {
+            return "H";
+        } else if (surfaceInterval > 62) {
+            return "I";
+        } else if (surfaceInterval > 56) {
+            return "J";
+        } else if (surfaceInterval > 51) {
+            return "K";
+        } else if (surfaceInterval > 46) {
+            return "L";
+        } else if (surfaceInterval > 41) {
+            return "M";
+        } else if (surfaceInterval > 37) {
+            return "N";
+        } else if (surfaceInterval > 33) {
+            return "O";
+        } else if (surfaceInterval > 29) {
+            return "P";
+        } else if (surfaceInterval > 25) {
+            return "Q";
+        } else if (surfaceInterval > 21) {
+            return "R";
+        } else if (surfaceInterval > 18) {
+            return "S";
+        } else if (surfaceInterval > 14) {
+            return "T";
+        } else if (surfaceInterval > 11) {
+            return "U";
+        } else if (surfaceInterval > 8) {
+            return "V";
+        } else if (surfaceInterval > 5) {
+            return "W";
+        } else if (surfaceInterval > 2) {
+            return "X";
+        } else {
+            return "Y";
+        }
+    } else /* Z */ {
+        if (surfaceInterval > 360) {
+            return "0";
+        } else if (surfaceInterval > 179) {
+            return "A";
+        } else if (surfaceInterval > 131) {
+            return "B";
+        } else if (surfaceInterval > 109) {
+            return "C";
+        } else if (surfaceInterval > 100) {
+            return "D";
+        } else if (surfaceInterval > 91) {
+            return "E";
+        } else if (surfaceInterval > 84) {
+            return "F";
+        } else if (surfaceInterval > 77) {
+            return "G";
+        } else if (surfaceInterval > 71) {
+            return "H";
+        } else if (surfaceInterval > 65) {
+            return "I";
+        } else if (surfaceInterval > 59) {
+            return "J";
+        } else if (surfaceInterval > 54) {
+            return "K";
+        } else if (surfaceInterval > 49) {
+            return "L";
+        } else if (surfaceInterval > 44) {
+            return "M";
+        } else if (surfaceInterval > 40) {
+            return "N";
+        } else if (surfaceInterval > 35) {
+            return "O";
+        } else if (surfaceInterval > 31) {
+            return "P";
+        } else if (surfaceInterval > 28) {
+            return "Q";
+        } else if (surfaceInterval > 24) {
+            return "R";
+        } else if (surfaceInterval > 20) {
+            return "S";
+        } else if (surfaceInterval > 17) {
+            return "T";
+        } else if (surfaceInterval > 14) {
+            return "U";
+        } else if (surfaceInterval > 11) {
+            return "V";
+        } else if (surfaceInterval > 8) {
+            return "W";
+        } else if (surfaceInterval > 5) {
+            return "X";
+        } else if (surfaceInterval > 2) {
+            return "Y";
+        } else {
+            return "Z";
+        }
     }
 }
