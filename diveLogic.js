@@ -1473,3 +1473,443 @@ function pgTransformer(pg, surfaceInterval) {
         return "1";
     }
 }
+
+function calcRNT(pg, depth) {
+    if (pg == "Z") {
+        if (depth < 40) {
+            return 205;
+        } else {
+            return 140;
+        }
+    } else if (pg == "Y") {
+        if (depth < 40) {
+            return 188;
+        } else {
+            return 129;
+        }
+    } else if (pg == "X") {
+        if (depth < 40) {
+            return 168;
+        } else if (depth < 50) {
+            return 120;
+        } else {
+            return 80;
+        }
+    } else if (pg == "W") {
+        if (depth < 40) {
+            return 152;
+        } else if (depth < 50) {
+            return 111;
+        } else if (depth < 60) {
+            return 75;
+        } else {
+            return 55;
+        }
+    } else if (pg == "V") {
+        if (depth < 40) {
+            return 139;
+        } else if (depth < 50) {
+            return 104;
+        } else if (depth < 60) {
+            return 71;
+        } else {
+            return 54;
+        }
+    } else if (pg == "U") {
+        if (depth < 40) {
+            return 127;
+        } else if (depth < 50) {
+            return 97;
+        } else if (depth < 60) {
+            return 67;
+        } else {
+            return 52;
+        }
+    } else if (pg == "T") {
+        if (depth < 40) {
+            return 117;
+        } else if (depth < 50) {
+            return 91;
+        } else if (depth < 60) {
+            return 63;
+        } else if (depth < 70) {
+            return 49;
+        } else {
+            return 40;
+        }
+    } else if (pg == "S") {
+        if (depth < 40) {
+            return 108;
+        } else if (depth < 50) {
+            return 85;
+        } else if (depth < 60) {
+            return 60;
+        } else if (depth < 70) {
+            return 47;
+        } else {
+            return 38;
+        }
+    } else if (pg == "R") {
+        if (depth < 40) {
+            return 100;
+        } else if (depth < 50) {
+            return 79;
+        } else if (depth < 60) {
+            return 57;
+        } else if (depth < 70) {
+            return 44;
+        } else if (depth < 80) {
+            return 36;
+        } else {
+            return 30;
+        }
+    } else if (pg == "Q") {
+        if (depth < 40) {
+            return 92;
+        } else if (depth < 50) {
+            return 74;
+        } else if (depth < 60) {
+            return 53;
+        } else if (depth < 70) {
+            return 42;
+        } else if (depth < 80) {
+            return 34;
+        } else if (depth < 90) {
+            return 29;
+        } else {
+            return 25;
+        }
+    } else if (pg == "P") {
+        if (depth < 40) {
+            return 85;
+        } else if (depth < 50) {
+            return 69;
+        } else if (depth < 60) {
+            return 50;
+        } else if (depth < 70) {
+            return 39;
+        } else if (depth < 80) {
+            return 33;
+        } else if (depth < 90) {
+            return 28;
+        } else {
+            return 24;
+        }
+    } else if (pg == "O") {
+        if (depth < 40) {
+            return 79;
+        } else if (depth < 50) {
+            return 64;
+        } else if (depth < 60) {
+            return 47;
+        } else if (depth < 70) {
+            return 37;
+        } else if (depth < 80) {
+            return 31;
+        } else if (depth < 90) {
+            return 26;
+        } else if (depth < 100) {
+            return 23;
+        } else {
+            return 20;
+        }
+    } else if (pg == "N") {
+        if (depth < 40) {
+            return 73;
+        } else if (depth < 50) {
+            return 60;
+        } else if (depth < 60) {
+            return 44;
+        } else if (depth < 70) {
+            return 35;
+        } else if (depth < 80) {
+            return 29;
+        } else if (depth < 90) {
+            return 25;
+        } else if (depth < 100) {
+            return 22;
+        } else {
+            return 19;
+        }
+    } else if (pg == "M") {
+        if (depth < 40) {
+            return 67;
+        } else if (depth < 50) {
+            return 55;
+        } else if (depth < 60) {
+            return 41;
+        } else if (depth < 70) {
+            return 33;
+        } else if (depth < 80) {
+            return 27;
+        } else if (depth < 90) {
+            return 23;
+        } else if (depth < 100) {
+            return 21;
+        } else if (depth < 110) {
+            return 18;
+        } else {
+            return 16;
+        }
+    } else if (pg == "L") {
+        if (depth < 40) {
+            return 62;
+        } else if (depth < 50) {
+            return 51;
+        } else if (depth < 60) {
+            return 38;
+        } else if (depth < 70) {
+            return 31;
+        } else if (depth < 80) {
+            return 26;
+        } else if (depth < 90) {
+            return 22;
+        } else if (depth < 100) {
+            return 19;
+        } else if (depth < 110) {
+            return 17;
+        } else {
+            return 15;
+        }
+    } else if (pg == "K") {
+        if (depth < 40) {
+            return 57;
+        } else if (depth < 50) {
+            return 48;
+        } else if (depth < 60) {
+            return 36;
+        } else if (depth < 70) {
+            return 29;
+        } else if (depth < 80) {
+            return 24;
+        } else if (depth < 90) {
+            return 21;
+        } else if (depth < 100) {
+            return 18;
+        } else if (depth < 110) {
+            return 16;
+        } else if (depth < 120) {
+            return 14;
+        } else {
+            return 13;
+        }
+    } else if (pg == "J") {
+        if (depth < 40) {
+            return 52;
+        } else if (depth < 50) {
+            return 44;
+        } else if (depth < 60) {
+            return 33;
+        } else if (depth < 70) {
+            return 27;
+        } else if (depth < 80) {
+            return 22;
+        } else if (depth < 90) {
+            return 19;
+        } else if (depth < 100) {
+            return 17;
+        } else if (depth < 110) {
+            return 15;
+        } else if (depth < 120) {
+            return 14;
+        } else {
+            return 12;
+        }
+    } else if (pg == "I") {
+        if (depth < 40) {
+            return 48;
+        } else if (depth < 50) {
+            return 40;
+        } else if (depth < 60) {
+            return 31;
+        } else if (depth < 70) {
+            return 25;
+        } else if (depth < 80) {
+            return 21;
+        } else if (depth < 90) {
+            return 18;
+        } else if (depth < 100) {
+            return 16;
+        } else if (depth < 110) {
+            return 14;
+        } else if (depth < 120) {
+            return 13;
+        } else {
+            return 12;
+        }
+    } else if (pg == "H") {
+        if (depth < 40) {
+            return 44;
+        } else if (depth < 50) {
+            return 37;
+        } else if (depth < 60) {
+            return 28;
+        } else if (depth < 70) {
+            return 23;
+        } else if (depth < 80) {
+            return 19;
+        } else if (depth < 90) {
+            return 17;
+        } else if (depth < 100) {
+            return 15;
+        } else if (depth < 110) {
+            return 13;
+        } else if (depth < 120) {
+            return 12;
+        } else if (depth < 130) {
+            return 11;
+        } else {
+            return 10;
+        }
+    } else if (pg == "G") {
+        if (depth < 40) {
+            return 40;
+        } else if (depth < 50) {
+            return 34;
+        } else if (depth < 60) {
+            return 26;
+        } else if (depth < 70) {
+            return 21;
+        } else if (depth < 80) {
+            return 18;
+        } else if (depth < 90) {
+            return 15;
+        } else if (depth < 100) {
+            return 13;
+        } else if (depth < 110) {
+            return 12;
+        } else if (depth < 120) {
+            return 11;
+        } else if (depth < 130) {
+            return 10;
+        } else {
+            return 9;
+        }
+    } else if (pg == "F") {
+        if (depth < 40) {
+            return 36;
+        } else if (depth < 50) {
+            return 31;
+        } else if (depth < 60) {
+            return 24;
+        } else if (depth < 70) {
+            return 19;
+        } else if (depth < 80) {
+            return 16;
+        } else if (depth < 90) {
+            return 14;
+        } else if (depth < 100) {
+            return 12;
+        } else if (depth < 110) {
+            return 11;
+        } else if (depth < 120) {
+            return 10;
+        } else if (depth < 130) {
+            return 9;
+        } else {
+            return 8;
+        }
+    } else if (pg == "E") {
+        if (depth < 40) {
+            return 32;
+        } else if (depth < 50) {
+            return 27;
+        } else if (depth < 60) {
+            return 21;
+        } else if (depth < 70) {
+            return 17;
+        } else if (depth < 80) {
+            return 15;
+        } else if (depth < 90) {
+            return 13;
+        } else if (depth < 100) {
+            return 11;
+        } else if (depth < 110) {
+            return 10;
+        } else if (depth < 120) {
+            return 9;
+        } else {
+            return 8;
+        }
+    } else if (pg == "D") {
+        if (depth < 40) {
+            return 29;
+        } else if (depth < 50) {
+            return 25;
+        } else if (depth < 60) {
+            return 19;
+        } else if (depth < 70) {
+            return 16;
+        } else if (depth < 80) {
+            return 13;
+        } else if (depth < 90) {
+            return 11;
+        } else if (depth < 100) {
+            return 10;
+        } else if (depth < 110) {
+            return 9;
+        } else if (depth < 120) {
+            return 8;
+        } else {
+            return 7;
+        }
+    } else if (pg == "C") {
+        if (depth < 40) {
+            return 25;
+        } else if (depth < 50) {
+            return 22;
+        } else if (depth < 60) {
+            return 17;
+        } else if (depth < 70) {
+            return 14;
+        } else if (depth < 80) {
+            return 12;
+        } else if (depth < 90) {
+            return 10;
+        } else if (depth < 100) {
+            return 9;
+        } else if (depth < 110) {
+            return 8;
+        } else if (depth < 120) {
+            return 7;
+        } else {
+            return 6;
+        }
+    } else if (pg == "B") {
+        if (depth < 40) {
+            return 19;
+        } else if (depth < 50) {
+            return 16;
+        } else if (depth < 60) {
+            return 13;
+        } else if (depth < 70) {
+            return 11;
+        } else if (depth < 80) {
+            return 9;
+        } else if (depth < 90) {
+            return 8;
+        } else if (depth < 100) {
+            return 7;
+        } else if (depth < 120) {
+            return 6;
+        } else {
+            return 5;
+        }
+    } else if (pg == "A") {
+        if (depth < 40) {
+            return 10;
+        } else if (depth < 50) {
+            return 9;
+        } else if (depth < 60) {
+            return 7;
+        } else if (depth < 70) {
+            return 6;
+        } else if (depth < 80) {
+            return 5;
+        } else if (depth < 100) {
+            return 4;
+        } else {
+            return 3;
+        }
+    }
+}
