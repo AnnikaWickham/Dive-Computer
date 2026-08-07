@@ -196,10 +196,230 @@ function getTimeInMins(hours, minutes) {
     return (hours * 60) + minutes;
 }
 
+//Returns the pressure group after the first dive. 
+// Returns "A" - "Z" OR "0" if the first dive exceeds the NDL time
+function getPG(depth, bottomTime) {
+    if (depth == 35) {
+        if (bottomTime >= 205) {
+            return "Z";
+        } else if (bottomTime >= 188) {
+            return "Y";
+        } else if (bottomTime >= 168) {
+            return "X";
+        } else if (bottomTime >= 152) {
+            return "W";
+        } else if (bottomTime >= 139) {
+            return "V";
+        } else if (bottomTime >= 127) {
+            return "U";
+        } else if (bottomTime >= 117) {
+            return "T";
+        } else if (bottomTime >= 108) {
+            return "S";
+        } else if (bottomTime >= 100) {
+            return "R";
+        } else if (bottomTime >= 92) {
+            return "Q";
+        } else if (bottomTime >= 85) {
+            return "P";
+        } else if (bottomTime >= 79) {
+            return "O";
+        } else if (bottomTime >= 73) {
+            return "N";
+        } else if (bottomTime >= 67) {
+            return "M";
+        } else if (bottomTime >= 62) {
+            return "L";
+        } else if (bottomTime >= 57) {
+            return "K";
+        } else if (bottomTime >= 52) {
+            return "J";
+        } else if (bottomTime >= 48) {
+            return "I";
+        } else if (bottomTime >= 44) {
+            return "H";
+        } else if (bottomTime >= 40) {
+            return "G";
+        } else if (bottomTime >= 36) {
+            return "F";
+        } else if (bottomTime >= 32) {
+            return "E";
+        } else if (bottomTime >= 29) {
+            return "D";
+        } else if (bottomTime >= 25) {
+            return "C";
+        } else if (bottomTime >= 19) {
+            return "B";
+        } else if (bottomTime >= 10) {
+            return "A";
+        } else {
+            return "0";
+        }
+    } else if (depth <= 40) {
+        if (bottomTime >= 140) {
+            return "Z";
+        } else if (bottomTime >= 129) {
+            return "Y";
+        } else if (bottomTime >= 120) {
+            return "X";
+        } else if (bottomTime >= 111) {
+            return "W";
+        } else if (bottomTime >= 104) {
+            return "V";
+        } else if (bottomTime >= 97) {
+            return "U";
+        } else if (bottomTime >= 91) {
+            return "T";
+        } else if (bottomTime >= 85) {
+            return "S";
+        } else if (bottomTime >= 79) {
+            return "R";
+        } else if (bottomTime >= 74) {
+            return "Q";
+        } else if (bottomTime >= 69) {
+            return "P";
+        } else if (bottomTime >= 64) {
+            return "O";
+        } else if (bottomTime >= 60) {
+            return "N";
+        } else if (bottomTime >= 55) {
+            return "M";
+        } else if (bottomTime >= 51) {
+            return "L";
+        } else if (bottomTime >= 48) {
+            return "K";
+        } else if (bottomTime >= 44) {
+            return "J";
+        } else if (bottomTime >= 40) {
+            return "I";
+        } else if (bottomTime >= 37) {
+            return "H";
+        } else if (bottomTime >= 34) {
+            return "G";
+        } else if (bottomTime >= 31) {
+            return "F";
+        } else if (bottomTime >= 27) {
+            return "E";
+        } else if (bottomTime >= 25) {
+            return "D";
+        } else if (bottomTime >= 22) {
+            return "C";
+        } else if (bottomTime >= 16) {
+            return "B";
+        } else if (bottomTime >= 9) {
+            return "A";
+        } else {
+            return "0";
+        }
+    } else if (depth <= 50) {
+        if (bottomTime >= 80) {
+            return "X";
+        } else if (bottomTime >= 75) {
+            return "W";
+        } else if (bottomTime >= 71) {
+            return "V";
+        } else if (bottomTime >= 67) {
+            return "U";
+        } else if (bottomTime >= 63) {
+            return "T";
+        } else if (bottomTime >= 60) {
+            return "S";
+        } else if (bottomTime >= 57) {
+            return "R";
+        } else if (bottomTime >= 53) {
+            return "Q";
+        } else if (bottomTime >= 50) {
+            return "P";
+        } else if (bottomTime >= 47) {
+            return "O";
+        } else if (bottomTime >= 44) {
+            return "N";
+        } else if (bottomTime >= 41) {
+            return "M";
+        } else if (bottomTime >= 39) {
+            return "L";
+        } else if (bottomTime >= 36) {
+            return "K";
+        } else if (bottomTime >= 33) {
+            return "J";
+        } else if (bottomTime >= 31) {
+            return "I";
+        } else if (bottomTime >= 28) {
+            return "H";
+        } else if (bottomTime >= 26) {
+            return "G";
+        } else if (bottomTime >= 24) {
+            return "F";
+        } else if (bottomTime >= 21) {
+            return "E";
+        } else if (bottomTime >= 19) {
+            return "D";
+        } else if (bottomTime >= 17) {
+            return "C";
+        } else if (bottomTime >= 13) {
+            return "B";
+        } else if (bottomTime >= 7) {
+            return "A";
+        } else {
+            return "0";
+        }
+    } else if (depth <= 60) {
+        if (bottomTime >= 55) {
+            return "W";
+        } else if (bottomTime >= 54) {
+            return "V";
+        } else if (bottomTime >= 52) {
+            return "U";
+        } else if (bottomTime >= 49) {
+            return "T";
+        } else if (bottomTime >= 47) {
+            return "S";
+        } else if (bottomTime >= 44) {
+            return "R";
+        } else if (bottomTime >= 42) {
+            return "Q";
+        } else if (bottomTime >= 39) {
+            return "P";
+        } else if (bottomTime >= 37) {
+            return "O";
+        } else if (bottomTime >= 35) {
+            return "N";
+        } else if (bottomTime >= 33) {
+            return "M";
+        } else if (bottomTime >= 31) {
+            return "L";
+        } else if (bottomTime >= 29) {
+            return "K";
+        } else if (bottomTime >= 27) {
+            return "J";
+        } else if (bottomTime >= 25) {
+            return "I";
+        } else if (bottomTime >= 23) {
+            return "H";
+        } else if (bottomTime >= 21) {
+            return "G";
+        } else if (bottomTime >= 19) {
+            return "F";
+        } else if (bottomTime >= 17) {
+            return "E";
+        } else if (bottomTime >= 16) {
+            return "D";
+        } else if (bottomTime >= 14) {
+            return "C";
+        } else if (bottomTime >= 11) {
+            return "B";
+        } else if (bottomTime >= 6) {
+            return "A";
+        } else {
+            return "0";
+        }
+    }
+}
+
 // This function takes the current pressure group and outputs the new pressure group based on the surface interval.
 // Values straight from the PADI dive table. 
 // INPUTS: pg = current pressure group (A-Z), surfaceInterval = time in mins
-// OUTPUT: new pressure group (A-Z) OR "0" if the diver is fully off-gassed
+// OUTPUT: new pressure group (A-Z) OR "0" if the diver is fully off-gassed OR "1" if the input is not (A-Z)
 function pgTransformer(pg, surfaceInterval) {
     if (pg == "A") {
         if (surfaceInterval > 3) {
@@ -951,7 +1171,7 @@ function pgTransformer(pg, surfaceInterval) {
         } else {
             return "Y";
         }
-    } else /* Z */ {
+    } else if (pg == "Z") {
         if (surfaceInterval > 360) {
             return "0";
         } else if (surfaceInterval > 179) {
@@ -1007,5 +1227,7 @@ function pgTransformer(pg, surfaceInterval) {
         } else {
             return "Z";
         }
+    } else {
+        return "1";
     }
 }
