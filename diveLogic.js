@@ -1913,3 +1913,7 @@ function calcRNT(pg, depth) {
         }
     }
 }
+
+function newNDL(depth, nrt) {
+    return getNDL(depth) - nrt;
+}
