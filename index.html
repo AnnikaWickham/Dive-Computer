@@ -145,20 +145,24 @@
                 <div id="dive1Div" style="width: 30%; position: relative;">
                     <div class="header-container">
                         <p style="font-family: Coiny; font-size: 1.5rem; margin-left: 40px; color: #ffffff;">Proposed Depth (ft): </p>
-                        <input type="number" id="minIN" style="border-radius: 4px; font-size: 25px; height: 40px; width: 60px; border-color: #4a90c2; color: #002f51;" min="35" max="140" placeholder="35" required>
+                        <input type="number" id="depthM" style="border-radius: 4px; font-size: 25px; height: 40px; width: 60px; border-color: #4a90c2; color: #002f51;" min="35" max="140" placeholder="35" required>
                     </div>
                     <div class="header-container">
                     <p style="font-family: Coiny; font-size: 1.3rem; margin-left: 40px; color: #ffffff;">Proposed Dive Time</p>
                         <div style="display: flex; position: relative; flex-direction: column;">
-                            <label for="hours" style="font-family: Coiny; font-size: 1rem; color: #ffffff;">Hours:&nbsp&nbsp&nbsp&nbsp&nbsp<input type="number" id="hourIN" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" min="0" max="99" placeholder="0" required></label>
-                            <label for="minutes" style="font-family: Coiny; font-size: 1rem; color: #ffffff;">Minutes: <input type="number" id="minuteIN" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" min="0" max="59" placeholder="00" required></label>
+                            <label for="hours" style="font-family: Coiny; font-size: 1rem; color: #ffffff;">Hours:&nbsp&nbsp&nbsp&nbsp&nbsp<input type="number" id="hours" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" min="0" max="99" placeholder="0" required></label>
+                            <label for="minutes" style="font-family: Coiny; font-size: 1rem; color: #ffffff;">Minutes: <input type="number" id="mins" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" min="0" max="59" placeholder="00" required></label>
                         </div>
                     </div>
+                    <p id="ndl" style="font-family: Coiny; margin-left: 40px; font-size: 2rem; color: #ffffff;">NDL: 0 mins</p>
+                    <p id="safeStop" style="font-family: Coiny; margin-left: 40px; font-size: 1.5rem; color: #ffffff;">Safety Stop Recommended</p>
+                    <p id="divePlan" style="font-family: Coiny; margin-left: 40px; height: 8 rem; font-size: 1.4rem; color: #ffffff;">Your current dive plan looks good! Have a safe and fun dive! You have 205 minutes of buffer time.</p>
+                    <span style="font-family: Coiny; margin-left: 40px; font-size: 2rem; color: #ffffff;">Pressure Group:&nbsp&nbsp<span id="pressGroup" style="font-family: Coiny; font-size: 2rem; color: #ff235a;">__</span> </span>
                 </div>
-                <div id="surIntDiv" style="width: 30%;">
-
+                <div id="surIntDiv" style="width: 30%; position: relative;">
+                    <img id="boat" src="boat.png" style="position: absolute; align-self: center; width: 100%;">
                 </div>
-                <div id="dive2Div" style="width: 30%;">
+                <div id="dive2Div" style="width: 30%; position: relative;">
 
                 </div>
             </div>

@@ -106,6 +106,7 @@ function getDepthColor(color, depth) {
   return lerpColor(startColor, endColor, percent);
 }
 
+// Updates EVERYTHING needed for the Single Dive Screen
 const slider = document.getElementById("depthSlider");
 const minInput = document.getElementById("minIN");
 const hrInput = document.getElementById("hrIN");
@@ -148,6 +149,31 @@ function updateAll() {
 slider.addEventListener("input", updateAll);
 minInput.addEventListener("input", updateAll);
 hrInput.addEventListener("input", updateAll);
+
+
+//Updates EVERYTHING for the Multi Dive Screen
+const depthM = document.getElementById("depthM");
+const mins = document.getElementById("mins");
+const hours = document.getElementById("hours");
+const ndl = document.getElementById("ndl");
+const safeStop = document.getElementById("safeStop");
+const divePlan = document.getElementById("divePlan");
+const pressGroup = document.getElementById("pressGroup");
+
+function updateAllMulti(){
+    const d = Number(depthM.value);
+    const time = getTimeInMins(Number(hours.value), Number(mins.value));
+    const ndlM = getNDL(d);
+    ndl.innerText = "NDL: " + ndlM + " mins";
+    safeStop.innerText = "" + safetyStopCheck(d, time);
+    divePlan.innerText = "" + calculateBufferTime(d, time);
+    pressGroup.innerText = getPG(d, time);
+}
+
+depthM.addEventListener("input", updateAllMulti);
+mins.addEventListener("input", updateAllMulti);
+hours.addEventListener("input", updateAllMulti);
+
 
 const singleDiveBtn = document.getElementById("singleDiveBtn");
 const multiDiveBtn = document.getElementById("multiDiveBtn");
