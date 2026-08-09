@@ -112,7 +112,7 @@ const minInput = document.getElementById("minIN");
 const hrInput = document.getElementById("hrIN");
 const diver = document.getElementById("diver");
 const depthLabel = document.getElementById("depthLabel");
-const containerHeight = 400; 
+const containerHeight = 560; 
 const ndlLabel = document.getElementById("ndlLabel");
 const ssLabel = document.getElementById("ssLabel");
 const dpLabel = document.getElementById("dpLabel");
@@ -1943,3 +1943,15 @@ function calcRNT(pg, depth) {
 function newNDL(depth, nrt) {
     return getNDL(depth) - nrt;
 }
+
+const appWrapper = document.getElementById("appWrapper");
+const designWidth = 1320; // must match the width above
+
+function updateScale() {
+  const scale = window.innerWidth / designWidth;
+  console.log("scale is:", scale);
+  appWrapper.style.transform = `scale(${scale})`;
+}
+
+updateScale();
+window.addEventListener("resize", updateScale);
