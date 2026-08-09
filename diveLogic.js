@@ -112,7 +112,7 @@ const minInput = document.getElementById("minIN");
 const hrInput = document.getElementById("hrIN");
 const diver = document.getElementById("diver");
 const depthLabel = document.getElementById("depthLabel");
-const containerHeight = 560; 
+const containerHeight = 460; 
 const ndlLabel = document.getElementById("ndlLabel");
 const ssLabel = document.getElementById("ssLabel");
 const dpLabel = document.getElementById("dpLabel");
@@ -133,7 +133,7 @@ function updateAll() {
   const pixelPosition = percent * containerHeight;
   diver.style.top = pixelPosition + "px";
   const ndl = getNDL(depth);
-  ndlLabel.innerText = "NDL: " + ndl + " mins";
+  ndlLabel.innerText = "NDL:  " + ndl + " mins";
   const bottomTime = getTimeInMins(Number(hrInput.value), Number(minInput.value));
   ssLabel.innerText = "" + safetyStopCheck(depth, bottomTime);
   dpLabel.innerText = "" + calculateBufferTime(depth, bottomTime);
