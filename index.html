@@ -160,7 +160,14 @@
                     <span style="font-family: Coiny; margin-left: 40px; font-size: 2rem; color: #ffffff;">Pressure Group:&nbsp&nbsp<span id="pressGroup" style="font-family: Coiny; font-size: 2rem; color: #ff235a;">__</span> </span>
                 </div>
                 <div id="surIntDiv" style="width: 30%; position: relative;">
-                    <img id="boat" src="boat.png" style="position: absolute; align-self: center; width: 100%;">
+                    <img id="boat" src="boat.png" style="position: relative; margin-top: 2rem; width: 100%;">
+                    <div class="header-container">
+                    <p style="font-family: Coiny; font-size: 1.3rem; color: #ffffff;">Proposed Dive Time</p>
+                        <div style="display: flex; position: relative; flex-direction: column;">
+                            <label for="hours" style="font-family: Coiny; font-size: 1rem; color: #ffffff;">Hours:&nbsp&nbsp&nbsp&nbsp&nbsp<input type="number" id="hoursSI" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" min="0" max="99" placeholder="0" required></label>
+                            <label for="minutes" style="font-family: Coiny; font-size: 1rem; color: #ffffff;">Minutes: <input type="number" id="minsSI" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" min="0" max="59" placeholder="00" required></label>
+                        </div>
+                    </div>
                 </div>
                 <div id="dive2Div" style="width: 30%; position: relative;">
 
