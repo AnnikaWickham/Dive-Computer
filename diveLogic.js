@@ -50,7 +50,6 @@ function getNDL(depth) {
         }
         return ndl;
     } else {
-        console.log("Depth must be an integer between 35 and 140 feet.");
         return null;
     }
 }
@@ -1976,7 +1975,6 @@ const designWidth = 1320; // must match the width above
 
 function updateScale() {
   const scale = window.innerWidth / designWidth;
-  console.log("scale is:", scale);
   appWrapper.style.transform = `scale(${scale})`;
 }
 
