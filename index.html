@@ -7,9 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Coiny&display=swap" rel="stylesheet">
 
     <style>
-     /*   * {
+        * {
             outline: 1px solid red !important;
-        } */
+        } 
 
         h1 {
             text-align: center;
@@ -148,23 +148,41 @@
                             </div>
                         </div>
                         <p id="ndl" style="margin-top: 0rem; margin-bottom: 1rem; font-family: Coiny; margin-left: 40px; font-size: 2rem; color: #ffffff;">NDL: 0 mins</p>
-                        <span style="margin-top: 0rem; margin-bottom: 0rem; font-family: Coiny; margin-left: 40px; font-size: 2rem; color: #ffffff;">Safety&nbspStop: <span id="safeStop" style="margin-left: 40px; font-family: Coiny; font-size: 2rem; color: #99fab0;">Recommended</span> </span>                        <p id="divePlan" style="margin-top: 1rem; margin-bottom: 0rem; font-family: Coiny; margin-left: 40px; height: 12rem; font-size: 1.5rem; color: #ffffff;">Your current dive plan looks good! Have a safe and fun dive! You have 205 minutes of buffer time.</p>
+                        <span style="margin-top: 0rem; margin-bottom: 0rem; font-family: Coiny; margin-left: 40px; font-size: 2rem; color: #ffffff;">Safety&nbspStop: <span id="safeStop" style="margin-left: 40px; font-family: Coiny; font-size: 2rem; color: #99fab0;">Recommended</span> </span>
+                        <p id="divePlan" style="margin-top: 1rem; margin-bottom: 0rem; font-family: Coiny; margin-left: 40px; height: 12rem; font-size: 1.5rem; color: #ffffff;">Your current dive plan looks good! Have a safe and fun dive! You have 205 minutes of buffer time.</p>
                         <span style="margin-top: 0.75rem; margin-bottom: 0rem; font-family: Coiny; margin-left: 40px; font-size: 2rem; color: #ffffff;">Pressure Group:&nbsp&nbsp<span id="pressGroup" style="font-family: Coiny; font-size: 2.5rem; color: #ff235a;">__</span> </span>
                     </div>
                     <div id="surIntDiv" style="width: 30%; position: relative;">
                         <img id="boat" src="boat.png" style="position: relative; margin-top: 1rem; width: 100%;">
                         <div class="header-container">
-                        <p style="font-family: Coiny; font-size: 1.3rem; color: #ffffff;">Proposed Dive Time</p>
+                        <p style="font-family: Coiny; font-size: 1.6rem; color: #ffffff;">Surface Interval: </p>
                             <div style="display: flex; position: relative; flex-direction: column;">
-                                <label for="hours" style="font-family: Coiny; font-size: 1rem; color: #ffffff;">Hours:&nbsp&nbsp&nbsp&nbsp&nbsp<input type="number" id="hoursSI" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" min="0" max="99" placeholder="0" required></label>
-                                <label for="minutes" style="font-family: Coiny; font-size: 1rem; color: #ffffff;">Minutes: <input type="number" id="minsSI" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" min="0" max="59" placeholder="00" required></label>
+                                <label for="hours" style="font-family: Coiny; font-size: 1.2rem; color: #ffffff;">Hours:&nbsp&nbsp&nbsp&nbsp&nbsp<input type="number" id="hoursSI" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" min="0" max="99" placeholder="0" required></label>
+                                <label for="minutes" style="font-family: Coiny; font-size: 1.2rem; color: #ffffff;">Minutes: <input type="number" id="minsSI" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" min="0" max="59" placeholder="00" required></label>
                             </div>
                         </div>
-                        <div style="position: relative; height: 300px">
-                            <img id="diver" src="diver.png" style="position: absolute; margin-left: 50%; transform: translateX(-50%); width: 110px;">
+                        <span style="margin-top: 0.75rem; margin-bottom: 0rem; font-family: Coiny; font-size: 1.75rem; color: #ffffff;">New Pressure Group:&nbsp&nbsp<span id="pressGroup2" style="font-family: Coiny; font-size: 2.5rem; color: #ff235a;">__</span> </span>
+                        <div style="height: 220px;">
+                            <p style="font-family: Coiny; font-size: 1.2rem; color: #ffffff;">*Input All Data For Best Results*</p>
                         </div>
                     </div>
-                    <div id="dive2Div" style="width: 30%; position: relative;">
+                    <div id="dive2Div" style="width: 32%; position: relative;">
+                        <div class="header-container" style="margin-top: 1rem;">
+                            <p style="margin-top: 0rem; margin-bottom: 0rem; font-family: Coiny; font-size: 1.55rem; color: #ffffff;">Proposed Depth (ft): </p>
+                            <input type="number" id="depth2" style="border-radius: 4px; margin-top: 0rem; margin-bottom: 0rem; margin-right: 40px; font-size: 25px; height: 40px; width: 60px; border-color: #4a90c2; color: #002f51;" min="35" max="140" placeholder="35" required>
+                        </div>
+                        <div class="header-container">
+                            <p style="font-family: Coiny; font-size: 1.75rem; color: #ffffff;"> Proposed Time</p>
+                            <div style="display: flex; position: relative; margin-top: 0rem; margin-bottom: 0rem; flex-direction: column;">
+                                <label for="hours" style="margin-right: 40px; font-family: Coiny; font-size: 1.2rem; color: #ffffff;">Hours:&nbsp&nbsp&nbsp&nbsp&nbsp<input type="number" id="hours2" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" min="0" max="99" placeholder="0" required></label>
+                                <label for="minutes" style="margin-right: 40px; font-family: Coiny; font-size: 1.2rem; color: #ffffff;">Minutes: <input type="number" id="mins2" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" min="0" max="59" placeholder="00" required></label>
+                            </div>
+                        </div>
+                        <p id="ndlNew" style="margin-top: 0rem; margin-bottom: 1rem; font-family: Coiny; font-size: 2rem; color: #ffffff;">Adjusted NDL: 0 mins</p>
+                        <p id="dive2Plan" style="margin-top: 1rem; margin-bottom: 0rem; font-family: Coiny; margin-right: 40px; height: 12rem; font-size: 1.5rem; color: #ffffff;">Your current dive plan looks good! Have a safe and fun dive! You have 205 minutes of buffer time.</p>
+                        <div style="height: 205px;">
+
+                        </div>
                     </div>
                 </div>
             </section>
