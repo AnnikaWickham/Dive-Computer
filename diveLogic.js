@@ -69,6 +69,16 @@ function calculateBufferTime(depth, bottomTime) {
     }
 }
 
+function calcBufferTimeByNDL(ndl, bottomTime) {
+    if ((bottomTime+5) < ndl) {
+        return "Your current dive plan looks good! Have a safe and fun dive! You have " + (ndl - bottomTime) + " minutes of buffer time.";
+    } else if (bottomTime <= ndl) {
+        return "Your current dive plan is safe, but you are close to your NDL limit. You have " + (ndl - bottomTime) + " minutes of buffer time.";
+    } else {
+        return "Your current dive plan is unsafe. You have exceeded your NDL limit by " + (bottomTime - ndl) + " minutes. Acend to a shallower depth or decrease dive time.";
+    }
+}
+
 function lerpColor(startColor, endColor, percent) {
   const r = Math.round(startColor.r + (endColor.r - startColor.r) * percent);
   const g = Math.round(startColor.g + (endColor.g - startColor.g) * percent);
@@ -159,20 +169,37 @@ const ndl = document.getElementById("ndl");
 const safeStop = document.getElementById("safeStop");
 const divePlan = document.getElementById("divePlan");
 const pressGroup = document.getElementById("pressGroup");
+const pressGroup2 = document.getElementById("pressGroup2");
+const ndlNew = document.getElementById("ndlNew");
+const dive2Plan = document.getElementById("dive2Plan");
 
 function updateAllMulti(){
     const d = Number(depthM.value);
     const time = getTimeInMins(Number(hours.value), Number(mins.value));
     const ndlM = getNDL(d);
+    const pg = getPG(d, time);
     ndl.innerText = "NDL: " + ndlM + " mins";
     safeStop.innerText = "" + safetyStopCheck(d, time);
     divePlan.innerText = "" + calculateBufferTime(d, time);
-    pressGroup.innerText = getPG(d, time);
+    pressGroup.innerText = pg;
+    const surTime = getTimeInMins(Number(hoursSI.value), Number(minsSI.value));
+    const pg2 = pgTransformer(pg, surTime);
+    pressGroup2.innerText = pg2;
+    const d2 = Number(depth2.value);
+    const time2 = getTimeInMins(Number(hours2.value), Number(mins2.value));
+    const ndl2 = newNDL(d2, calcRNT(pg2, d2));
+    ndlNew.innerText = "Adjusted NDL: " + ndl2 + " mins";
+    dive2Plan.innerText = "" + calcBufferTimeByNDL(ndl2, time2);
 }
 
 depthM.addEventListener("input", updateAllMulti);
 mins.addEventListener("input", updateAllMulti);
 hours.addEventListener("input", updateAllMulti);
+hoursSI.addEventListener("input", updateAllMulti);
+minsSI.addEventListener("input", updateAllMulti);
+depth2.addEventListener("input", updateAllMulti);
+mins2.addEventListener("input", updateAllMulti);
+hours2.addEventListener("input", updateAllMulti);
 
 
 const singleDiveBtn = document.getElementById("singleDiveBtn");
