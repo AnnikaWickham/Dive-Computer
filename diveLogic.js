@@ -198,23 +198,23 @@ multiDiveBtn.addEventListener("click", function () {
 
 function safetyStopCheck(depth, bottomTime) {
     if (depth >= 100) {
-        return "Safety Stop Required";
+        return "Required";
     } else if (depth > 90 && bottomTime >= 22) {
-        return "Safety Stop Required";
+        return "Required";
     } else if (depth > 80 && bottomTime >= 26) {
-        return "Safety Stop Required";
+        return "Required";
     } else if (depth > 70 && bottomTime >= 35) {
-        return "Safety Stop Required";
+        return "Required";
     } else if (depth > 60 && bottomTime >= 49) {
-        return "Safety Stop Required";
+        return "Required";
     } else if (depth > 50 && bottomTime >= 67) {
-        return "Safety Stop Required";
+        return "Required";
     } else if (depth > 40 && bottomTime >= 111) {
-        return "Safety Stop Required";
+        return "Required";
     } else if (depth > 35 && bottomTime >= 152) {
-        return "Safety Stop Required";
+        return "Required";
     } else {
-        return "Safety Stop Recommended";
+        return "Recommended";
     }
 }
 
