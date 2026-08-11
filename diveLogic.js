@@ -6,17 +6,6 @@
 
 #       - SUPER FUTURE implement the actual physics and algs that PADI used to calc the tables
 #       - NDL can be affected by water temp, age, weight, gas mixture, exertion, and altitude.
-
-What the UI needs, concretely:
-Dive 1: depth + bottom time → shows a pressure group letter (top corner kinda hidden)
-A surface interval input (e.g. "how many hours/minutes did you wait")
-Dive 2: depth (another slider, or reuse the same one) → shows the adjusted NDL for this second dive, 
-clearly different from what a fresh dive to that depth would allow
-
-"After your first dive, if you wait X and go back down to Y feet, 
-ou actually only have Z minutes this time — not the usual NDL for that depth." 
-Comparison (fresh NDL vs. adjusted NDL) 
-
 */
 
 // Maps the depth of the dive in feet to the non-decompression limit (NDL) in minutes based on PADI dive tables.
