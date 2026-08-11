@@ -1,10 +1,8 @@
-/* TODO  CREATE A COOL GUI WITH BUTTONS AND INPUTSS TO CALC NDL AND BUFFER TIME 
-#       - ONCE THATS DONE we try to calculate for repeate dives based on presssure groups, surface interval
-#       - we would calculate the new NDL based on the previous dive and surface interval.
-
+/* TODO  
 #       - A nitrogen tank that fills as you input the planned bottom time
         - Add bubbles that rise from the scuba diver every 2ish seconds
         - Little Question mark icon to give info about color depth, NDL and safety stop
+        - Safety Stop logic for repeat dives.
 
 #       - SUPER FUTURE implement the actual physics and algs that PADI used to calc the tables
 #       - NDL can be affected by water temp, age, weight, gas mixture, exertion, and altitude.
@@ -169,8 +167,6 @@ const safeStop = document.getElementById("safeStop");
 const divePlan = document.getElementById("divePlan");
 const pressGroup = document.getElementById("pressGroup");
 const pressGroup2 = document.getElementById("pressGroup2");
-const ndlNew = document.getElementById("ndlNew");
-const dive2Plan = document.getElementById("dive2Plan");
 
 function updateAllMulti(){
     const d = Number(depthM.value);
@@ -182,8 +178,18 @@ function updateAllMulti(){
     divePlan.innerText = "" + calculateBufferTime(d, time);
     pressGroup.innerText = pg;
     const surTime = getTimeInMins(Number(hoursSI.value), Number(minsSI.value));
+    pressGroup2.innerText = pgTransformer(pg, surTime);
+}
+
+const ndlNew = document.getElementById("ndlNew");
+const dive2Plan = document.getElementById("dive2Plan");
+
+function updateDive2Info(){
+    const d = Number(depthM.value);
+    const time = getTimeInMins(Number(hours.value), Number(mins.value));
+    const pg = getPG(d, time);
+    const surTime = getTimeInMins(Number(hoursSI.value), Number(minsSI.value));
     const pg2 = pgTransformer(pg, surTime);
-    pressGroup2.innerText = pg2;
     const d2 = Number(depth2.value);
     const time2 = getTimeInMins(Number(hours2.value), Number(mins2.value));
     const ndl2 = newNDL(d2, calcRNT(pg2, d2));
@@ -196,9 +202,9 @@ mins.addEventListener("input", updateAllMulti);
 hours.addEventListener("input", updateAllMulti);
 hoursSI.addEventListener("input", updateAllMulti);
 minsSI.addEventListener("input", updateAllMulti);
-depth2.addEventListener("input", updateAllMulti);
-mins2.addEventListener("input", updateAllMulti);
-hours2.addEventListener("input", updateAllMulti);
+depth2.addEventListener("input", updateDive2Info);
+mins2.addEventListener("input", updateDive2Info);
+hours2.addEventListener("input", updateDive2Info);
 
 
 const singleDiveBtn = document.getElementById("singleDiveBtn");
@@ -1967,7 +1973,12 @@ function calcRNT(pg, depth) {
 }
 
 function newNDL(depth, nrt) {
-    return getNDL(depth) - nrt;
+    const ans = getNDL(depth) - nrt;
+    if (ans < 0) {
+        return 0;
+    } else {
+        return ans;
+    }
 }
 
 const appWrapper = document.getElementById("appWrapper");
