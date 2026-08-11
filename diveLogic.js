@@ -305,7 +305,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 10) {
             return "A";
         } else {
-            return "0";
+            return "--";
         }
     } else if (depth <= 40) {
         if (bottomTime >= 140) {
@@ -361,7 +361,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 9) {
             return "A";
         } else {
-            return "0";
+            return "--";
         }
     } else if (depth <= 50) {
         if (bottomTime >= 80) {
@@ -413,7 +413,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 7) {
             return "A";
         } else {
-            return "0";
+            return "--";
         }
     } else if (depth <= 60) {
         if (bottomTime >= 55) {
@@ -463,7 +463,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 6) {
             return "A";
         } else {
-            return "0";
+            return "--";
         }
     } else if (depth <= 70) {
         if (bottomTime >= 40) {
@@ -507,7 +507,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 5) {
             return "A";
         } else {
-            return "0";
+            return "--";
         }
     } else if (depth <= 80) {
         if (bottomTime >= 30) {
@@ -547,7 +547,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 4) {
             return "A";
         } else {
-            return "0";
+            return "--";
         }
     } else if (depth <= 90) {
         if (bottomTime >= 25) {
@@ -585,7 +585,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 4) {
             return "A";
         } else {
-            return "0";
+            return "--";
         }
     } else if (depth <= 100) {
         if (bottomTime >= 20) {
@@ -619,7 +619,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 3) {
             return "A";
         } else {
-            return "0";
+            return "--";
         }
     } else if (depth <= 110) {
         if (bottomTime >= 16) {
@@ -647,7 +647,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 3) {
             return "A";
         } else {
-            return "0";
+            return "--";
         }
     } else if (depth <= 120) {
         if (bottomTime >= 13) {
@@ -671,7 +671,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 3) {
             return "A";
         } else {
-            return "0";
+            return "--";
         }
     } else if (depth <= 130) {
         if (bottomTime >= 10) {
@@ -689,7 +689,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 3) {
             return "A";
         } else {
-            return "0";
+            return "--";
         }
     } else {
         if (bottomTime >= 8) {
@@ -705,7 +705,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 0) {
             return "A";
         } else {
-            return "0";
+            return "--";
         }
     }
 }
@@ -1522,7 +1522,7 @@ function pgTransformer(pg, surfaceInterval) {
             return "Z";
         }
     } else {
-        return "1";
+        return "--";
     }
 }
 
