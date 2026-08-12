@@ -30,6 +30,9 @@ const ndlTable = {
 // If the depth is not in the table, it will 
 // return the NDL for the next available shallower depth.
 function getNDL(depth) {
+    if (depth <= 0 || depth == null) {
+        depth = 35;
+    }
     if (Number.isInteger(depth) && depth >= 35 && depth <= 140) {
         let ndl = ndlTable[depth];
         while (ndl == undefined) {
@@ -38,7 +41,7 @@ function getNDL(depth) {
         }
         return ndl;
     } else {
-        return null;
+        return "--";
     }
 }
 
@@ -64,6 +67,7 @@ function calcBufferTimeByNDL(ndl, bottomTime) {
     }
 }
 
+// Calculates how full the Nitrogen Visual should be based on ndl and buffer time
 function dudePercent(depth, bottomTime) {
     let time = bottomTime;
     if (bottomTime == 0) {
@@ -83,6 +87,7 @@ function dudePercent(depth, bottomTime) {
     return Math.max(0, Math.min(100, percent));
 }
 
+//Calculates what color the fill should be for the nitrogen visual
 function dudeColor(dudePercent) {
     if (dudePercent < 30) {
         return 'drop-shadow(0 0 0 rgb(255, 0, 0)) drop-shadow(0 0 0 rgb(255, 0, 0))';
@@ -93,6 +98,8 @@ function dudeColor(dudePercent) {
     }
 }
 
+//Takes a startColor, endColor, and percent. The higher the percent the closer the color is to the ending color
+// Used for color at depth graphic.
 function lerpColor(startColor, endColor, percent) {
   const r = Math.round(startColor.r + (endColor.r - startColor.r) * percent);
   const g = Math.round(startColor.g + (endColor.g - startColor.g) * percent);
@@ -100,6 +107,7 @@ function lerpColor(startColor, endColor, percent) {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
+//Gets the start & end colors based on color and depth (uses lerpColor)
 function getDepthColor(color, depth) {
   const percent = (depth - 35) / (105);
   let startColor, endColor;
@@ -150,7 +158,6 @@ const pinkC = document.getElementById("pinkBox");
 const dude = document.getElementById("headless");
 let bottomTime = 0;
 let depth = 35;
-
 function updateAll() {
   depth = Number(slider.value);
   depthLabel.innerText = "Depth: " + depth + " ft";
@@ -174,10 +181,8 @@ function updateAll() {
   dude.style.clipPath = `inset(${dudeP}% 0 0 0)`;
   dude.style.filter = dudeColor(dudeP);
 }
-
 slider.addEventListener("input", updateAll);
 minInput.addEventListener("input", updateAll);
-
 
 //Updates EVERYTHING for the Multi Dive Screen
 const depthM = document.getElementById("depthM");
@@ -187,16 +192,9 @@ const safeStop = document.getElementById("safeStop");
 const divePlan = document.getElementById("divePlan");
 const pressGroup = document.getElementById("pressGroup");
 const pressGroup2 = document.getElementById("pressGroup2");
-let d = 35;
-let time = 0;
-
 function updateAllMulti(){
-    if (depthM.value == null) {
-        d = 35;
-    } else {
-        d = Number(depthM.value);
-    }
-    time = Number(mins.value);
+    const d = Number(depthM.value);
+    const time = Number(mins.value);
     const ndlM = getNDL(d);
     const pg = getPG(d, time);
     ndl.innerText = "NDL: " + ndlM + " mins";
@@ -206,10 +204,9 @@ function updateAllMulti(){
     const surTime = getTimeInMins(Number(hoursSI.value), Number(minsSI.value));
     pressGroup2.innerText = pgTransformer(pg, surTime);
 }
-
+//Updates EVERYTHING for the Multi Dive Screen (Dive 2 section)
 const ndlNew = document.getElementById("ndlNew");
 const dive2Plan = document.getElementById("dive2Plan");
-
 function updateDive2Info(){
     const d = Number(depthM.value);
     const time = Number(mins.value);
@@ -222,7 +219,6 @@ function updateDive2Info(){
     ndlNew.innerText = "Adjusted NDL: " + ndl2 + " mins";
     dive2Plan.innerText = "" + calcBufferTimeByNDL(ndl2, time2);
 }
-
 depthM.addEventListener("input", updateAllMulti);
 mins.addEventListener("input", updateAllMulti);
 hoursSI.addEventListener("input", updateAllMulti);
@@ -232,12 +228,11 @@ minsSI.addEventListener("input", updateDive2Info);
 depth2.addEventListener("input", updateDive2Info);
 mins2.addEventListener("input", updateDive2Info);
 
-
+// Buttons for the different "tabs"
 const singleDiveBtn = document.getElementById("singleDiveBtn");
 const multiDiveBtn = document.getElementById("multiDiveBtn");
 const singleDive = document.getElementById("singleDive");
 const multiDive = document.getElementById("multiDive");
-
 singleDiveBtn.addEventListener("click", function () {
   singleDive.style.display = "block";
   multiDive.style.display = "none";
@@ -245,7 +240,6 @@ singleDiveBtn.addEventListener("click", function () {
   singleDiveBtn.classList.add("active");
   multiDiveBtn.classList.remove("active");
 });
-
 multiDiveBtn.addEventListener("click", function () {
   multiDive.style.display = "block";
   singleDive.style.display = "none";
@@ -254,6 +248,7 @@ multiDiveBtn.addEventListener("click", function () {
   singleDiveBtn.classList.remove("active");
 });
 
+// Function to determine if a safety stop is necessary
 function safetyStopCheck(depth, bottomTime) {
     if (depth >= 100) {
         return "Required";
@@ -276,13 +271,17 @@ function safetyStopCheck(depth, bottomTime) {
     }
 }
 
+//Converts hours+mins to just mins
 function getTimeInMins(hours, minutes) {
     return (hours * 60) + minutes;
 }
 
 //Returns the pressure group after the first dive. 
-// Returns "A" - "Z" OR "0" if the first dive exceeds the NDL time
+// Returns "A" - "Z" OR "--" if the first dive exceeds the NDL time
 function getPG(depth, bottomTime) {
+    if (bottomTime == null) {
+        bottomTime = 0;
+    }
     if (depth == 35) {
         if (bottomTime >= 205) {
             return "Z";
@@ -723,7 +722,7 @@ function getPG(depth, bottomTime) {
         } else {
             return "--";
         }
-    } else {
+    } else if (depth <= 140) {
         if (bottomTime >= 8) {
             return "F";
         } else if (bottomTime >= 7) {
@@ -739,13 +738,15 @@ function getPG(depth, bottomTime) {
         } else {
             return "--";
         }
+    } else {
+        return "--";
     }
 }
 
 // This function takes the current pressure group and outputs the new pressure group based on the surface interval.
 // Values straight from the PADI dive table. 
 // INPUTS: pg = current pressure group (A-Z), surfaceInterval = time in mins
-// OUTPUT: new pressure group (A-Z) OR "0" if the diver is fully off-gassed OR "1" if the input is not (A-Z)
+// OUTPUT: new pressure group (A-Z) OR "--" if the diver is fully off-gassed OR "--" if the input is not (A-Z)
 function pgTransformer(pg, surfaceInterval) {
     if (pg == "A") {
         if (surfaceInterval > 3) {
@@ -1558,6 +1559,7 @@ function pgTransformer(pg, surfaceInterval) {
     }
 }
 
+//Calcs residual nitrogen time based on pg and depth
 function calcRNT(pg, depth) {
     if (pg == "Z") {
         if (depth < 40) {
@@ -1995,25 +1997,29 @@ function calcRNT(pg, depth) {
         } else {
             return 3;
         }
+    } else {
+        return "--";
     }
 }
 
+// calcs new NDL based on depth and nrt
 function newNDL(depth, nrt) {
     const ans = getNDL(depth) - nrt;
     if (ans < 0) {
         return 0;
-    } else {
+    } else if (ans >= 0) {
         return ans;
+    } else {
+        return "--";
     }
 }
 
+//Changes the scale of everything based on the scale of the window
 const appWrapper = document.getElementById("appWrapper");
 const designWidth = 1320; // must match the width above
-
 function updateScale() {
   const scale = window.innerWidth / designWidth;
   appWrapper.style.transform = `scale(${scale})`;
 }
-
 updateScale();
 window.addEventListener("resize", updateScale);
