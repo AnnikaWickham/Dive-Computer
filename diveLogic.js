@@ -1,8 +1,11 @@
 /* TODO  
         - Add bubbles that rise from the scuba diver every 2ish seconds
         - Little Question mark icon to give info about color depth, NDL and safety stop
-        - Safety Stop logic for repeat dives.
-
+        - Safety Stop logic for dive 2.
+        - Pressure Groups for dive 2.
+        - Eddies issue
+        - Change hours + mins on dive time to just mins.
+        
 #       - SUPER FUTURE implement the actual physics and algs that PADI used to calc the tables
 #       - NDL can be affected by water temp, age, weight, gas mixture, exertion, and altitude.
 */
@@ -148,9 +151,10 @@ const purpleC = document.getElementById("purpleBox");
 const pinkC = document.getElementById("pinkBox");
 const dude = document.getElementById("headless");
 let bottomTime = 0;
+let depth = 35;
 
 function updateAll() {
-  const depth = Number(slider.value);
+  depth = Number(slider.value);
   depthLabel.innerText = "Depth: " + depth + " ft";
   colorLabel.innerText = "Colors At Depth " + depth + "ft:";
   const percent = (depth - slider.min) / (slider.max - slider.min);
@@ -187,10 +191,16 @@ const safeStop = document.getElementById("safeStop");
 const divePlan = document.getElementById("divePlan");
 const pressGroup = document.getElementById("pressGroup");
 const pressGroup2 = document.getElementById("pressGroup2");
+let d = 35;
+let time = 0;
 
 function updateAllMulti(){
-    const d = Number(depthM.value);
-    const time = getTimeInMins(Number(hours.value), Number(mins.value));
+    if (depthM.value == null) {
+        d = 35;
+    } else {
+        d = Number(depthM.value);
+    }
+    time = getTimeInMins(Number(hours.value), Number(mins.value));
     const ndlM = getNDL(d);
     const pg = getPG(d, time);
     ndl.innerText = "NDL: " + ndlM + " mins";

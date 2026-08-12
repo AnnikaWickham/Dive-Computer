@@ -36,8 +36,9 @@ CREDITS:
 Diver sprite: (https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTegdAXTzZnQbex6VM_FMapk1G1CSusCtHrI8gxKm6LpA&s=10)
 Boat sprite: (https://thumbs.dreamstime.com/b/colorful-fishing-boat-two-antennas-orange-accents-isolated-transparent-background-png-ai-generated-362604349.jpg)
 Background image: (https://static.vecteezy.com/system/resources/thumbnails/038/000/283/small/ai-generated-sunlight-illuminating-the-surface-and-depths-of-the-blue-ocean-capturing-the-essence-of-summer-with-clear-waters-and-gentle-sea-waves-photo.jpg)
+Dude outline: (https://cdn.vectorstock.com/i/500p/60/59/minimalist-human-outline-vector-60366059.jpg)
 Font: Coiny via Google Fonts
-Dive table data: PADI Recreational Dive Planner
+Dive table data: PADI Recreational Dive Planner (https://a1scubadiving.com/wp-content/uploads/2018/06/PADI-Recreational-Dive-Table-Planner.pdf)
 
 NOTES:
 This is a personal project and is not a substitute for a certified dive computer or real dive planning tools. Always follow your training and use certified equipment when diving.
