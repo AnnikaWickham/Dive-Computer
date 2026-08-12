@@ -45,8 +45,6 @@ function getNDL(depth) {
     }
 }
 
-// NOT CURRENTLY IN USE BC OF USER INPUT, THE NEXT THING TO DO IS MAKE A WINDOW 
-// WITH COOL BUTTONS AND INPUT FIELDS FOR DEPTH AND BOTTOM TIME, THEN CALCULATE NDL AND BUFFER TIME
 // Calculates the buffer time left based on the depth and bottom time of the dive.
 function calculateBufferTime(depth, bottomTime) {
     const ndl = getNDL(depth);
@@ -67,6 +65,25 @@ function calcBufferTimeByNDL(ndl, bottomTime) {
     } else {
         return "Your current dive plan is unsafe. You have exceeded your NDL limit by " + (bottomTime - ndl) + " minutes. Acend to a shallower depth or decrease dive time.";
     }
+}
+
+function dudePercent(depth, bottomTime) {
+    let time = bottomTime;
+    if (bottomTime == 0) {
+        time = 1;
+    }
+    const ndl = getNDL(depth);
+    const buffTime =  ndl - time;
+    let percent;
+    if (buffTime == 0) {
+        percent = 30;
+    } else if (buffTime < 0) {
+        percent = 30 + (2*buffTime);
+    } else {
+        percent = ((buffTime) / ndl) * 70 + 30;
+    }
+
+    return Math.max(0, Math.min(100, percent));
 }
 
 function lerpColor(startColor, endColor, percent) {
@@ -124,6 +141,8 @@ const greenC = document.getElementById("greenBox");
 const blueC = document.getElementById("blueBox");
 const purpleC = document.getElementById("purpleBox");
 const pinkC = document.getElementById("pinkBox");
+const dude = document.getElementById("headless");
+let bottomTime = 0;
 
 function updateAll() {
   const depth = Number(slider.value);
@@ -134,7 +153,7 @@ function updateAll() {
   diver.style.top = pixelPosition + "px";
   const ndl = getNDL(depth);
   ndlLabel.innerText = "NDL:  " + ndl + " mins";
-  const bottomTime = getTimeInMins(Number(hrInput.value), Number(minInput.value));
+  bottomTime = getTimeInMins(Number(hrInput.value), Number(minInput.value));
   ssLabel.innerText = "" + safetyStopCheck(depth, bottomTime);
   dpLabel.innerText = "" + calculateBufferTime(depth, bottomTime);
   redC.style.backgroundColor = getDepthColor("red", depth);
@@ -144,6 +163,8 @@ function updateAll() {
   blueC.style.backgroundColor = getDepthColor("blue", depth);
   purpleC.style.backgroundColor = getDepthColor("purple", depth);
   pinkC.style.backgroundColor = getDepthColor("pink", depth);
+  const dudeP = dudePercent(depth, bottomTime);
+  dude.style.clipPath = `inset(${dudeP}% 0 0 0)`;
 }
 
 slider.addEventListener("input", updateAll);
