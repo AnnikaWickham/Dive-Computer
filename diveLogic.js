@@ -4,7 +4,6 @@
         - Safety Stop logic for dive 2.
         - Pressure Groups for dive 2.
         - Eddies issue
-        - Change hours + mins on dive time to just mins.
         
 #       - SUPER FUTURE implement the actual physics and algs that PADI used to calc the tables
 #       - NDL can be affected by water temp, age, weight, gas mixture, exertion, and altitude.
@@ -134,7 +133,6 @@ function getDepthColor(color, depth) {
 // Updates EVERYTHING needed for the Single Dive Screen
 const slider = document.getElementById("depthSlider");
 const minInput = document.getElementById("minIN");
-const hrInput = document.getElementById("hrIN");
 const diver = document.getElementById("diver");
 const depthLabel = document.getElementById("depthLabel");
 const containerHeight = 460; 
@@ -162,7 +160,7 @@ function updateAll() {
   diver.style.top = pixelPosition + "px";
   const ndl = getNDL(depth);
   ndlLabel.innerText = "NDL:  " + ndl + " mins";
-  bottomTime = getTimeInMins(Number(hrInput.value), Number(minInput.value));
+  bottomTime = Number(minInput.value);
   ssLabel.innerText = "" + safetyStopCheck(depth, bottomTime);
   dpLabel.innerText = "" + calculateBufferTime(depth, bottomTime);
   redC.style.backgroundColor = getDepthColor("red", depth);
@@ -179,13 +177,11 @@ function updateAll() {
 
 slider.addEventListener("input", updateAll);
 minInput.addEventListener("input", updateAll);
-hrInput.addEventListener("input", updateAll);
 
 
 //Updates EVERYTHING for the Multi Dive Screen
 const depthM = document.getElementById("depthM");
 const mins = document.getElementById("mins");
-const hours = document.getElementById("hours");
 const ndl = document.getElementById("ndl");
 const safeStop = document.getElementById("safeStop");
 const divePlan = document.getElementById("divePlan");
@@ -200,7 +196,7 @@ function updateAllMulti(){
     } else {
         d = Number(depthM.value);
     }
-    time = getTimeInMins(Number(hours.value), Number(mins.value));
+    time = Number(mins.value);
     const ndlM = getNDL(d);
     const pg = getPG(d, time);
     ndl.innerText = "NDL: " + ndlM + " mins";
@@ -216,12 +212,12 @@ const dive2Plan = document.getElementById("dive2Plan");
 
 function updateDive2Info(){
     const d = Number(depthM.value);
-    const time = getTimeInMins(Number(hours.value), Number(mins.value));
+    const time = Number(mins.value);
     const pg = getPG(d, time);
     const surTime = getTimeInMins(Number(hoursSI.value), Number(minsSI.value));
     const pg2 = pgTransformer(pg, surTime);
     const d2 = Number(depth2.value);
-    const time2 = getTimeInMins(Number(hours2.value), Number(mins2.value));
+    const time2 = Number(mins2.value);
     const ndl2 = newNDL(d2, calcRNT(pg2, d2));
     ndlNew.innerText = "Adjusted NDL: " + ndl2 + " mins";
     dive2Plan.innerText = "" + calcBufferTimeByNDL(ndl2, time2);
@@ -229,12 +225,12 @@ function updateDive2Info(){
 
 depthM.addEventListener("input", updateAllMulti);
 mins.addEventListener("input", updateAllMulti);
-hours.addEventListener("input", updateAllMulti);
 hoursSI.addEventListener("input", updateAllMulti);
 minsSI.addEventListener("input", updateAllMulti);
+hoursSI.addEventListener("input", updateDive2Info);
+minsSI.addEventListener("input", updateDive2Info);
 depth2.addEventListener("input", updateDive2Info);
 mins2.addEventListener("input", updateDive2Info);
-hours2.addEventListener("input", updateDive2Info);
 
 
 const singleDiveBtn = document.getElementById("singleDiveBtn");
