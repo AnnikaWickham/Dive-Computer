@@ -1,9 +1,4 @@
 /* TODO  
-#       - A nitrogen tank that fills as you input the planned bottom time
-OK PLAN: REDO OUTLINE SO ITS EASIER TO READ NDL LIMIT, REDO HEADLESS SO IT GOES OVER HEAD INCASE DIVE IS > NDL
-ALSO IF POSSIBLE, MAKE HEADLESS KINDA TRANSPARENT?
-SET THE CLIP PATH TO BE A PERCENTAGE (LIKE THE LITTLE DIVER)
-THEN WORK ON COLOR (RED IF OVER) YELLOW IF CLOSE, GREEN IF GOOD
         - Add bubbles that rise from the scuba diver every 2ish seconds
         - Little Question mark icon to give info about color depth, NDL and safety stop
         - Safety Stop logic for repeat dives.
