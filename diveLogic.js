@@ -86,6 +86,16 @@ function dudePercent(depth, bottomTime) {
     return Math.max(0, Math.min(100, percent));
 }
 
+function dudeColor(dudePercent) {
+    if (dudePercent < 30) {
+        return 'drop-shadow(0 0 0 rgb(255, 0, 0)) drop-shadow(0 0 0 rgb(255, 0, 0))';
+    } else if (dudePercent <= 35) {
+        return 'drop-shadow(0 0 0 rgb(255, 140, 0)) drop-shadow(0 0 0 rgb(255, 191, 0))';
+    } else {
+        return 'drop-shadow(0 0 0 rgb(0, 255, 0)) drop-shadow(0 0 0 rgb(0, 255, 0))';
+    }
+}
+
 function lerpColor(startColor, endColor, percent) {
   const r = Math.round(startColor.r + (endColor.r - startColor.r) * percent);
   const g = Math.round(startColor.g + (endColor.g - startColor.g) * percent);
@@ -165,6 +175,7 @@ function updateAll() {
   pinkC.style.backgroundColor = getDepthColor("pink", depth);
   const dudeP = dudePercent(depth, bottomTime);
   dude.style.clipPath = `inset(${dudeP}% 0 0 0)`;
+  dude.style.filter = dudeColor(dudeP);
 }
 
 slider.addEventListener("input", updateAll);
