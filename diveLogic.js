@@ -206,6 +206,7 @@ function updateAllMulti(){
 //Updates EVERYTHING for the Multi Dive Screen (Dive 2 section)
 const ndlNew = document.getElementById("ndlNew");
 const dive2Plan = document.getElementById("dive2Plan");
+const fPG = document.getElementById("finalPG");
 function updateDive2Info(){
     const d = Number(depthM.value);
     const time = Number(mins.value);
@@ -214,9 +215,11 @@ function updateDive2Info(){
     const pg2 = pgTransformer(pg, surTime);
     const d2 = Number(depth2.value);
     const time2 = Number(mins2.value);
-    const ndl2 = newNDL(d2, calcRNT(pg2, d2));
+    const nrt = calcRNT(pg2, d2)
+    const ndl2 = newNDL(d2, nrt);
     ndlNew.innerText = "Adjusted NDL: " + ndl2 + " mins";
     dive2Plan.innerText = "" + calcBufferTimeByNDL(ndl2, time2);
+    fPG.innerText = finalPG(d2,nrt,time2);
 }
 depthM.addEventListener("input", updateAllMulti);
 mins.addEventListener("input", updateAllMulti);
@@ -335,7 +338,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 10) {
             return "A";
         } else {
-            return "--";
+            return "None";
         }
     } else if (depth <= 40) {
         if (bottomTime >= 140) {
@@ -391,7 +394,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 9) {
             return "A";
         } else {
-            return "--";
+            return "None";
         }
     } else if (depth <= 50) {
         if (bottomTime >= 80) {
@@ -443,7 +446,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 7) {
             return "A";
         } else {
-            return "--";
+            return "None";
         }
     } else if (depth <= 60) {
         if (bottomTime >= 55) {
@@ -493,7 +496,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 6) {
             return "A";
         } else {
-            return "--";
+            return "None";
         }
     } else if (depth <= 70) {
         if (bottomTime >= 40) {
@@ -537,7 +540,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 5) {
             return "A";
         } else {
-            return "--";
+            return "None";
         }
     } else if (depth <= 80) {
         if (bottomTime >= 30) {
@@ -577,7 +580,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 4) {
             return "A";
         } else {
-            return "--";
+            return "None";
         }
     } else if (depth <= 90) {
         if (bottomTime >= 25) {
@@ -615,7 +618,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 4) {
             return "A";
         } else {
-            return "--";
+            return "None";
         }
     } else if (depth <= 100) {
         if (bottomTime >= 20) {
@@ -649,7 +652,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 3) {
             return "A";
         } else {
-            return "--";
+            return "None";
         }
     } else if (depth <= 110) {
         if (bottomTime >= 16) {
@@ -677,7 +680,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 3) {
             return "A";
         } else {
-            return "--";
+            return "None";
         }
     } else if (depth <= 120) {
         if (bottomTime >= 13) {
@@ -701,7 +704,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 3) {
             return "A";
         } else {
-            return "--";
+            return "None";
         }
     } else if (depth <= 130) {
         if (bottomTime >= 10) {
@@ -719,7 +722,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 3) {
             return "A";
         } else {
-            return "--";
+            return "None";
         }
     } else if (depth <= 140) {
         if (bottomTime >= 8) {
@@ -735,7 +738,7 @@ function getPG(depth, bottomTime) {
         } else if (bottomTime >= 0) {
             return "A";
         } else {
-            return "--";
+            return "None";
         }
     } else {
         return "--";
@@ -745,17 +748,17 @@ function getPG(depth, bottomTime) {
 // This function takes the current pressure group and outputs the new pressure group based on the surface interval.
 // Values straight from the PADI dive table. 
 // INPUTS: pg = current pressure group (A-Z), surfaceInterval = time in mins
-// OUTPUT: new pressure group (A-Z) OR "--" if the diver is fully off-gassed OR "--" if the input is not (A-Z)
+// OUTPUT: new pressure group (A-Z) OR "None" if the diver is fully off-gassed OR "--" if the input is not (A-Z)
 function pgTransformer(pg, surfaceInterval) {
     if (pg == "A") {
         if (surfaceInterval > 3) {
-            return "0";
+            return "None";
         } else {
             return "A";
         }
     } else if (pg == "B") {
         if (surfaceInterval > 228) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 47) {
             return "A";
         } else {
@@ -763,7 +766,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "C") {
         if (surfaceInterval > 250) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 69) {
             return "A";
         } else if (surfaceInterval > 21) {
@@ -773,7 +776,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "D") {
         if (surfaceInterval > 259) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 78) {
             return "A";
         } else if (surfaceInterval > 30) {
@@ -785,7 +788,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "E") {
         if (surfaceInterval > 268) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 87) {
             return "A";
         } else if (surfaceInterval > 38) {
@@ -799,7 +802,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "F") {
         if (surfaceInterval > 275) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 94) {
             return "A";
         } else if (surfaceInterval > 46) {
@@ -815,7 +818,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "G") {
         if (surfaceInterval > 282) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 101) {
             return "A";
         } else if (surfaceInterval > 53) {
@@ -833,7 +836,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "H") {
         if (surfaceInterval > 288) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 107) {
             return "A";
         } else if (surfaceInterval > 59) {
@@ -853,7 +856,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "I") {
         if (surfaceInterval > 294) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 113) {
             return "A";
         } else if (surfaceInterval > 65) {
@@ -875,7 +878,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "J") {
         if (surfaceInterval > 300) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 119) {
             return "A";
         } else if (surfaceInterval > 71) {
@@ -899,7 +902,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "K") {
         if (surfaceInterval > 305) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 124) {
             return "A";
         } else if (surfaceInterval > 76) {
@@ -925,7 +928,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "L") {
         if (surfaceInterval > 310) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 129) {
             return "A";
         } else if (surfaceInterval > 81) {
@@ -953,7 +956,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "M") {
         if (surfaceInterval > 315) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 134) {
             return "A";
         } else if (surfaceInterval > 85) {
@@ -983,7 +986,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "N") {
         if (surfaceInterval > 319) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 138) {
             return "A";
         } else if (surfaceInterval > 90) {
@@ -1015,7 +1018,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "O") {
         if (surfaceInterval > 324) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 143) {
             return "A";
         } else if (surfaceInterval > 94) {
@@ -1049,7 +1052,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "P") {
         if (surfaceInterval > 328) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 147) {
             return "A";
         } else if (surfaceInterval > 98) {
@@ -1085,7 +1088,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "Q") {
         if (surfaceInterval > 331) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 150) {
             return "A";
         } else if (surfaceInterval > 102) {
@@ -1123,7 +1126,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "R") {
         if (surfaceInterval > 335) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 154) {
             return "A";
         } else if (surfaceInterval > 106) {
@@ -1163,7 +1166,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "S") {
         if (surfaceInterval > 339) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 158) {
             return "A";
         } else if (surfaceInterval > 109) {
@@ -1205,7 +1208,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "T") {
         if (surfaceInterval > 342) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 161) {
             return "A";
         } else if (surfaceInterval > 113) {
@@ -1249,7 +1252,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "U") {
         if (surfaceInterval > 345) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 164) {
             return "A";
         } else if (surfaceInterval > 116) {
@@ -1295,7 +1298,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "V") {
         if (surfaceInterval > 348) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 167) {
             return "A";
         } else if (surfaceInterval > 119) {
@@ -1343,7 +1346,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "W") {
         if (surfaceInterval > 351) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 170) {
             return "A";
         } else if (surfaceInterval > 122) {
@@ -1393,7 +1396,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "X") {
         if (surfaceInterval > 354) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 173) {
             return "A";
         } else if (surfaceInterval > 125) {
@@ -1445,7 +1448,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "Y") {
         if (surfaceInterval > 357) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 176) {
             return "A";
         } else if (surfaceInterval > 128) {
@@ -1499,7 +1502,7 @@ function pgTransformer(pg, surfaceInterval) {
         }
     } else if (pg == "Z") {
         if (surfaceInterval > 360) {
-            return "0";
+            return "None";
         } else if (surfaceInterval > 179) {
             return "A";
         } else if (surfaceInterval > 131) {
@@ -1997,12 +2000,28 @@ function calcRNT(pg, depth) {
             return 3;
         }
     } else {
-        return "--";
+        return "None";
     }
+}
+
+function finalPG(depth, nrt, bottomTime) {
+    if (depth <= 35 || depth == null) {
+        depth = 35;
+    }
+    if (bottomTime == 0) {
+        return getPG(depth, 0);
+    }
+    if (nrt == "None") {
+        return getPG(depth, bottomTime);
+    }
+    return getPG(depth, (bottomTime + nrt));
 }
 
 // calcs new NDL based on depth and nrt
 function newNDL(depth, nrt) {
+    if (nrt == "None") {
+        return getNDL(depth);
+    }
     const ans = getNDL(depth) - nrt;
     if (ans < 0) {
         return 0;
