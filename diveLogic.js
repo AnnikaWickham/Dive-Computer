@@ -58,6 +58,7 @@ function diveSafety(bufferTime) {
     return html;
 }
 
+//// Writes how safe the dive is in fewer words.
 function diveSafetyShort(bufferTime) {
     if (bufferTime > 5) {
         return "Safe";
@@ -170,6 +171,7 @@ const pinkC = document.getElementById("pinkBox");
 const dude = document.getElementById("headless");
 let bottomTime = 0;
 let depth = 35;
+
 function updateAll() {
   depth = Number(slider.value);
   depthLabel.innerText = "Depth: " + depth + " ft";
@@ -218,6 +220,7 @@ function updateAllMulti(){
     const surTime = getTimeInMins(Number(hoursSI.value), Number(minsSI.value));
     pressGroup2.innerText = pgTransformer(pg, surTime);
 }
+
 //Updates EVERYTHING for the Multi Dive Screen (Dive 2 section)
 const ndlNew = document.getElementById("ndlNew");
 const dive2Plan = document.getElementById("dive2Plan");
@@ -286,6 +289,120 @@ function safetyStopCheck(depth, bottomTime) {
         return "Required";
     } else if (depth > 35 && bottomTime >= 152) {
         return "Required";
+    } else {
+        return "Recommended";
+    }
+}
+
+// determines if a safety stop is necessary for the second dive based on presssure groups.
+function safetyStopDive2(pg1, pg2, depth) {
+    if (depth >= 100) {
+        return "Required";
+    }
+    if (pg1 == "A") {
+        if (pg2 == "A") {
+            return "Required";
+        }
+    } else if (pg1 == "B") {
+        if (pg2 == "B" || pg2 == "A") {
+            return "Required";
+        }
+    } else if (pg1 == "C") {
+        if (pg2 == "C" || pg2 == "B" || pg2 == "A") {
+            return "Required";
+        }
+    } else if (pg1 == "D") {
+        if (pg2 == "D" || pg2 == "C" || pg2 == "B" || pg2 == "A") {
+            return "Required";
+        }
+    } else if (pg1 == "E") {
+        if (pg2 == "D" || pg2 == "C" || pg2 == "B" || pg2 == "E") {
+            return "Required";
+        }
+    } else if (pg1 == "F") {
+        if (pg2 == "D" || pg2 == "C" || pg2 == "F" || pg2 == "E") {
+            return "Required";
+        }
+    } else if (pg1 == "G") {
+        if (pg2 == "D" || pg2 == "G" || pg2 == "F" || pg2 == "E") {
+            return "Required";
+        }
+    } else if (pg1 == "H") {
+        if (pg2 == "H" || pg2 == "G" || pg2 == "F" || pg2 == "E") {
+            return "Required";
+        }
+    } else if (pg1 == "I") {
+        if (pg2 == "H" || pg2 == "G" || pg2 == "F" || pg2 == "I") {
+            return "Required";
+        }
+    } else if (pg1 == "J") {
+        if (pg2 == "H" || pg2 == "G" || pg2 == "J" || pg2 == "I") {
+            return "Required";
+        }
+    } else if (pg1 == "K") {
+        if (pg2 == "H" || pg2 == "K" || pg2 == "J" || pg2 == "I") {
+            return "Required";
+        }
+    } else if (pg1 == "L") {
+        if (pg2 == "L" || pg2 == "K" || pg2 == "J" || pg2 == "I") {
+            return "Required";
+        }
+    } else if (pg1 == "M") {
+        if (pg2 == "L" || pg2 == "K" || pg2 == "J" || pg2 == "M") {
+            return "Required";
+        }
+    } else if (pg1 == "N") {
+        if (pg2 == "L" || pg2 == "K" || pg2 == "N" || pg2 == "M") {
+            return "Required";
+        }
+    } else if (pg1 == "O") {
+        if (pg2 == "L" || pg2 == "O" || pg2 == "N" || pg2 == "M") {
+            return "Required";
+        }
+    } else if (pg1 == "P") {
+        if (pg2 == "P" || pg2 == "O" || pg2 == "N" || pg2 == "M") {
+            return "Required";
+        }
+    } else if (pg1 == "Q") {
+        if (pg2 == "P" || pg2 == "O" || pg2 == "N" || pg2 == "Q") {
+            return "Required";
+        }
+    } else if (pg1 == "R") {
+        if (pg2 == "P" || pg2 == "O" || pg2 == "R" || pg2 == "Q") {
+            return "Required";
+        }
+    } else if (pg1 == "S") {
+        if (pg2 == "P" || pg2 == "S" || pg2 == "R" || pg2 == "Q") {
+            return "Required";
+        }
+    } else if (pg1 == "T") {
+        if (pg2 == "T" || pg2 == "S" || pg2 == "R" || pg2 == "Q") {
+            return "Required";
+        }
+    } else if (pg1 == "U") {
+        if (pg2 == "T" || pg2 == "S" || pg2 == "R" || pg2 == "U") {
+            return "Required";
+        }
+    } else if (pg1 == "V") {
+        if (pg2 == "T" || pg2 == "S" || pg2 == "V" || pg2 == "U") {
+            return "Required";
+        }
+    } else if (pg1 == "W") {
+        if (pg2 == "T" || pg2 == "W" || pg2 == "V" || pg2 == "U") {
+            return "Required";
+        }
+    } else if (pg1 == "X") {
+        if (pg2 == "X" || pg2 == "W" || pg2 == "V" || pg2 == "U") {
+            return "Required";
+        }
+    } else if (pg1 == "Y") {
+        if (pg2 == "X" || pg2 == "W" || pg2 == "V" || pg2 == "Y") {
+            return "Required";
+        }
+    } else if (pg1 == "Z") {
+        if (pg2 == "X" || pg2 == "W" || pg2 == "Z" || pg2 == "Y") {
+            return "Required";
+        }
     } else {
         return "Recommended";
     }
