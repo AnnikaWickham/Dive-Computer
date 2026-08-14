@@ -1,7 +1,6 @@
 /* TODO  
         - Add bubbles that rise from the scuba diver every 2ish seconds
         - Little Question mark icon to give info about color depth, NDL and safety stop
-        - Safety Stop logic for dive 2.
         
 #       - SUPER FUTURE implement the actual physics and algs that PADI used to calc the tables
 #       - NDL can be affected by water temp, age, weight, gas mixture, exertion, and altitude.
