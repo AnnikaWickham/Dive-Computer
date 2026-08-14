@@ -1,6 +1,6 @@
 🤿 Dive Computer
 
-An interactive scuba dive planner and visualization tool built with HTML, CSS, and JavaScript. It calculates no-decompression limits (NDL) based on PADI recreational dive tables, visualizes nitrogen buildup, and shows how colors fade with depth — all live, as you adjust the inputs. It also lets you plan multiple dives in the same day and see how your nitrogen pressure groups affect future dives.
+An interactive scuba dive planner and visualization tool built with HTML, CSS, and JavaScript. It calculates no-decompression limits (NDL) based on PADI recreational dive tables, visualizes nitrogen buildup, and shows how colors fade with depth, as you adjust the inputs. It also lets you plan multiple dives in the same day and see how your nitrogen pressure groups affect future dives.
 
 HOW TO RUN IT:
 1. Live Demo → [test it out with this link] (https://annikawickham.github.io/Dive-Computer/)
@@ -10,12 +10,12 @@ or
 
 
 Features
-Single Dive Planner — drag a depth slider (or type a number) and enter your planned bottom time to instantly see your NDL, buffer time, and safety stop recommendation.
-Animated diver — a diver sprite moves in real time with the depth slider.
-Nitrogen visual — a body-shaped fill graphic shows how close you are to your NDL Limit at a glance.
-Color-at-depth visualizer — shows how the color spectrum shifts and fades the deeper you go, compared to colors at the surface.
-Multi-Dive Planner — plans a repeat dive by calculating pressure groups and adjusting your second dive's NDL based on your first dive and surface interval.
-Link to Padi Tables — see what my code is based off of and double check results for safety.
+Single Dive Planner: drag a depth slider (or type a number) and enter your planned bottom time to instantly see your NDL, buffer time, and safety stop recommendation.
+Animated diver: a diver sprite moves in real time with the depth slider.
+Nitrogen visual: a body-shaped fill graphic shows how close you are to your NDL Limit at a glance.
+Color at depth visualizer: shows how the color spectrum shifts and fades the deeper you go, compared to colors at the surface.
+Multi-Dive Planner: plans a repeat dive by calculating pressure groups and adjusting your second dive's NDL based on your first dive and surface interval.
+Link to Padi Tables: see what my code is based off of and double check results for safety.
 
 
 TECH STACK:
