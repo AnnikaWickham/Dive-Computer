@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Coiny&display=swap" rel="stylesheet">
 
     <style>
-       /* * {
+      /*  * {
             outline: 1px solid red !important;
         } */
 
@@ -141,29 +141,29 @@
                     <p style="font-family: Coiny; margin-right: 10%; font-size: 2rem; color: #ffffff;">Dive 2 Plan</p>
                 </div>
                 <div class="header-container" style="width: 100%; margin-top: 1rem; position: relative; margin: auto;">
-                    <div id="dive1Div" style="width: 34%; position: relative; margin-top: 0px;">
+                    <div id="dive1Div" style="width: 34%; position: relative; height: 39rem; margin-top: 0px;">
                         <div class="header-container" style="margin-top: 0rem;">
-                            <p style="margin-top: 0rem; margin-bottom: 0rem; font-family: Coiny; font-size: 1.55rem; margin-left: 40px; color: #ffffff;">Proposed Depth (ft): </p>
-                            <input type="number" id="depthM" style="border-radius: 4px; margin-top: 0rem; margin-bottom: 0rem; font-size: 25px; height: 40px; width: 60px; border-color: #4a90c2; color: #002f51;" min="35" max="140" placeholder="35" required>
+                            <p style="margin-top: 2rem; margin-bottom: 0rem; font-family: Coiny; font-size: 1.75rem; margin-left: 40px; color: #ffffff;">Proposed Depth (ft): </p>
+                            <input type="number" id="depthM" style="border-radius: 4px; margin-top: 2rem; margin-bottom: 0rem; font-size: 25px; height: 40px; width: 60px; border-color: #4a90c2; color: #002f51;" min="35" max="140" placeholder="35" required>
                         </div>
                         <div class="header-container">
                         <p style="font-family: Coiny; font-size: 2rem; margin-left: 40px; color: #ffffff;"> Dive Time</p>
                                 <label for="minutes" style="font-family: Coiny; font-size: 1.5rem; color: #ffffff;">Minutes:&nbsp&nbsp&nbsp<input type="number" id="mins" style="border-radius: 4px; font-size: 25px; height: 40px; width: 60px; border-color: #4a90c2; color: #002f51;" min="0" max="59" placeholder="00" required></label>
                         </div>
                         <span style="margin-left: 40px; font-family: Coiny; font-size: 2rem; color: #ffffff;">NDL:&nbsp&nbsp<span id="ndl" style="font-family: Coiny; font-size: 2rem; color: #ff7c7c;">205</span>&nbsp&nbspmins</span>
-                        <div style="margin-top: 1rem;"></div>
-                        <span style="margin-top: 0rem; margin-bottom: 0rem; font-family: Coiny; margin-left: 40px; font-size: 2rem; color: #ffffff;">Safety&nbspStop: <span id="safeStop" style="margin-left: 40px; font-family: Coiny; font-size: 2rem; color: #99fab0;">Recommended</span> </span>
-                        <div style="margin-top: 1rem; margin-bottom: 0rem; margin-left: 40px; height: 8rem;">
+                        <div style="margin-top: 1rem; margin-bottom: 1rem; margin-left: 40px; height: 8rem;">
                             <span style="font-family: Coiny; font-size: 1.95rem; color: #ffffff;">Dive Safety:&nbsp&nbsp<span id="divePlan" style="font-family: Coiny; font-size: 1.95rem; color: #99fab0;">--</span></span>
                             <div style="margin-top: 1rem;"></div>
                             <span style="font-family: Coiny; font-size: 1.95rem; color: #ffffff;">Buffer Time:&nbsp&nbsp<span id="bufferTime" style="font-family: Coiny; font-size: 1.95rem; color: #ff7c7c;">--</span>&nbsp&nbspmins</span>
                         </div>
+                        <span style="margin-top: 0rem; margin-bottom: 0rem; font-family: Coiny; margin-left: 40px; font-size: 2rem; color: #ffffff;">Safety&nbspStop: <span id="safeStop" style="margin-left: 40px; margin-top: 0rem; font-family: Coiny; font-size: 2rem; color: #99fab0;">Recommended</span> </span>
+                        <div style="margin-top: 1rem;"></div>
                         <span style="margin-top: 0.75rem; margin-bottom: 0rem; font-family: Coiny; margin-left: 40px; font-size: 2rem; color: #ffffff;">Pressure Group:&nbsp&nbsp<span id="pressGroup" style="font-family: Coiny; font-size: 2.5rem; color: #ff235a;">__</span> </span>
                     </div>
-                    <div id="surIntDiv" style="width: 30%; position: relative;">
-                        <img id="boat" src="boat.png" style="position: relative; margin-top: 1rem; width: 100%;">
-                        <div class="header-container">
-                        <p style="font-family: Coiny; font-size: 1.6rem; color: #ffffff;">Surface Interval: </p>
+                    <div id="surIntDiv" style="width: 30%; position: relative; height: 39rem;">
+                        <img id="boat" src="boat.png" style="position: relative; margin-top: 2rem; width: 100%;">
+                        <div class="header-container" style="margin-top: 1rem;">
+                            <p style="font-family: Coiny; font-size: 1.6rem; color: #ffffff;">Surface Interval: </p>
                             <div style="display: flex; position: relative; flex-direction: column;">
                                 <label for="hours" style="font-family: Coiny; font-size: 1.2rem; color: #ffffff;">Hours:&nbsp&nbsp&nbsp&nbsp&nbsp<input type="number" id="hoursSI" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" min="0" max="99" placeholder="0" required></label>
                                 <label for="minutes" style="font-family: Coiny; font-size: 1.2rem; color: #ffffff;">Minutes: <input type="number" id="minsSI" style="border-radius: 4px; border-color: #4a90c2; color: #002f51;" min="0" max="59" placeholder="00" required></label>
@@ -171,16 +171,16 @@
                         </div>
                         <span style="margin-top: 0.75rem; margin-bottom: 0rem; font-family: Coiny; font-size: 1.75rem; color: #ffffff;">New Pressure Group:&nbsp&nbsp<span id="pressGroup2" style="font-family: Coiny; font-size: 2.5rem; color: #ff235a;">__</span> </span>
                         <div style="height: 150px;">
-                            <p style="font-family: Coiny; font-size: 1.2rem; color: #ffffff;">*Input All Data For Best Results*</p>
+                            <p style="font-family: Coiny; font-size: 1.4rem; color: #ffffff;">*Input All Data For Best Results*</p>
                         </div>
                     </div>
-                    <div id="dive2Div" style="width: 32%; position: relative;">
-                        <div class="header-container" style="margin-top: 1rem;">
-                            <p style="margin-top: 0rem; margin-bottom: 0rem; font-family: Coiny; font-size: 1.55rem; color: #ffffff;">Proposed Depth (ft): </p>
+                    <div id="dive2Div" style="width: 32%; position: relative; height: 39rem;">
+                        <div class="header-container" style="margin-top: 2rem;">
+                            <p style="margin-top: 0rem; margin-bottom: 0rem; font-family: Coiny; font-size: 1.7rem; color: #ffffff;">Proposed Depth (ft): </p>
                             <input type="number" id="depth2" style="border-radius: 4px; margin-top: 0rem; margin-bottom: 0rem; margin-right: 40px; font-size: 25px; height: 40px; width: 60px; border-color: #4a90c2; color: #002f51;" min="35" max="140" placeholder="35" required>
                         </div>
                         <div class="header-container">
-                            <p style="font-family: Coiny; font-size: 1.75rem; margin-top: 1.7rem; margin-bottom: 1.7rem; color: #ffffff;">Dive Time</p>
+                            <p style="font-family: Coiny; font-size: 2rem; margin-top: 1.7rem; margin-bottom: 1.7rem; color: #ffffff;">Dive Time</p>
                             <div style="display: flex; position: relative; margin-top: 0rem; margin-bottom: 0rem; flex-direction: column;">
                                 <label for="minutes" style="margin-right: 40px; font-family: Coiny; font-size: 1.5rem; color: #ffffff;">Minutes:&nbsp&nbsp&nbsp<input type="number" id="mins2" style="border-radius: 4px; font-size: 25px; height: 40px; width: 60px; border-color: #4a90c2; color: #002f51;" min="0" max="59" placeholder="00" required></label>
                             </div>
@@ -191,7 +191,9 @@
                             <div style="margin-top: 1rem;"></div>
                             <span style="font-family: Coiny; font-size: 1.95rem; color: #ffffff;">Buffer Time:&nbsp&nbsp<span id="bufferTime2" style="font-family: Coiny; font-size: 1.95rem; color: #ff7c7c;">--</span>&nbsp&nbspmins</span>
                         </div>
-                        <div style="height: 180px;">
+                        <div style="height: 190px;">
+                            <span style="width: 40%; margin-top: 0.75rem; margin-bottom: 2rem; font-family: Coiny; font-size: 1.75rem; color: #ffffff;">Safety&nbspStop:&nbsp&nbsp<span id="ssLabel2" style="font-family: Coiny; font-size: 1.75rem; color: #99fab0;">Recommended</span></span>
+                            <div style="margin-top: 1rem;"></div>
                             <span style="margin-top: 0.75rem; margin-bottom: 0rem; font-family: Coiny; font-size: 1.75rem; color: #ffffff;">Ending Pressure Group:&nbsp&nbsp<span id="finalPG" style="font-family: Coiny; font-size: 2.5rem; color: #ff235a;">__</span> </span>
                         </div>
                     </div>
