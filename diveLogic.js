@@ -44,25 +44,27 @@ function getNDL(depth) {
     }
 }
 
-// Calculates the buffer time left based on the depth and bottom time of the dive.
-function calculateBufferTime(depth, bottomTime) {
-    const ndl = getNDL(depth);
-    if ((bottomTime+5) < ndl) {
-        return "Your current dive plan looks good! Have a safe and fun dive! You have " + (ndl - bottomTime) + " minutes of buffer time.";
-    } else if (bottomTime <= ndl) {
-        return "Your current dive plan is safe, but you are close to your NDL limit. You have " + (ndl - bottomTime) + " minutes of buffer time.";
+function diveSafety(bufferTime) {
+    const numSpan = (n) => `<span style="color: #ff7c7c;">${n}</span>`;
+    let html;
+    if (bufferTime > 5) {
+        html = `Your current dive plan looks good. You have ${numSpan(bufferTime)} minutes of buffer time. Have a fun and safe dive!`;
+    } else if (bufferTime >= 0) {
+        html = `Your current dive plan is safe but you are close to your NDL limit. You have ${numSpan(bufferTime)} minutes of buffer time.`;
     } else {
-        return "Your current dive plan is unsafe. You have exceeded your NDL limit by " + (bottomTime - ndl) + " minutes. Acend to a shallower depth or decrease dive time.";
+        html = `Your current dive plan is unsafe. You exceeded your NDL limit by ${numSpan(-bufferTime)} minutes. Ascend to a shallower depth or decrease dive time.`;
     }
+    document.getElementById("dpText").innerHTML = html;
+    return html;
 }
 
 function calcBufferTimeByNDL(ndl, bottomTime) {
     if ((bottomTime+5) < ndl) {
-        return "Your current dive plan looks good! Have a safe and fun dive! You have " + (ndl - bottomTime) + " minutes of buffer time.";
+        return (ndl - bottomTime);
     } else if (bottomTime <= ndl) {
-        return "Your current dive plan is safe, but you are close to your NDL limit. You have " + (ndl - bottomTime) + " minutes of buffer time.";
+        return (ndl - bottomTime);
     } else {
-        return "Your current dive plan is unsafe. You have exceeded your NDL limit by " + (bottomTime - ndl) + " minutes. Acend to a shallower depth or decrease dive time.";
+        return (ndl - bottomTime);
     }
 }
 
@@ -164,11 +166,10 @@ function updateAll() {
   const percent = (depth - slider.min) / (slider.max - slider.min);
   const pixelPosition = percent * containerHeight;
   diver.style.top = pixelPosition + "px";
-  const ndl = getNDL(depth);
-  ndlLabel.innerText = "NDL:  " + ndl + " mins";
+  ndlLabel.innerText = getNDL(depth);
   bottomTime = Number(minInput.value);
   ssLabel.innerText = "" + safetyStopCheck(depth, bottomTime);
-  dpLabel.innerText = "" + calculateBufferTime(depth, bottomTime);
+  diveSafety(calcBufferTimeByNDL(getNDL(depth), bottomTime));
   redC.style.backgroundColor = getDepthColor("red", depth);
   orangeC.style.backgroundColor = getDepthColor("orange", depth);
   yellowC.style.backgroundColor = getDepthColor("yellow", depth);
