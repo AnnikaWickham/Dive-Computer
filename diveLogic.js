@@ -2,7 +2,6 @@
         - Add bubbles that rise from the scuba diver every 2ish seconds
         - Little Question mark icon to give info about color depth, NDL and safety stop
         - Safety Stop logic for dive 2.
-        - Less Wordy + colors on important things
         
 #       - SUPER FUTURE implement the actual physics and algs that PADI used to calc the tables
 #       - NDL can be affected by water temp, age, weight, gas mixture, exertion, and altitude.
@@ -210,7 +209,7 @@ function updateAllMulti(){
     const time = Number(mins.value);
     const ndlM = getNDL(d);
     const pg = getPG(d, time);
-    ndl.innerText = "NDL: " + ndlM + " mins";
+    ndl.innerText = ndlM;
     safeStop.innerText = "" + safetyStopCheck(d, time);
     const bT = calcBufferTimeByNDL(ndlM, time);
     divePlan.innerText = diveSafetyShort(bT);
@@ -234,7 +233,7 @@ function updateDive2Info(){
     const time2 = Number(mins2.value);
     const nrt = calcRNT(pg2, d2)
     const ndl2 = newNDL(d2, nrt);
-    ndlNew.innerText = "Adjusted NDL: " + ndl2 + " mins";
+    ndlNew.innerText = ndl2;
     const bT = calcBufferTimeByNDL(ndl2, time2);
     dive2Plan.innerText = diveSafetyShort(bT);
     bufferTime2.innerText = bT;
