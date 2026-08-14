@@ -44,6 +44,7 @@ function getNDL(depth) {
     }
 }
 
+// Writes how safe the dive is and whatever buffertime the diver might have.
 function diveSafety(bufferTime) {
     const numSpan = (n) => `<span style="color: #ff7c7c;">${n}</span>`;
     let html;
@@ -58,6 +59,17 @@ function diveSafety(bufferTime) {
     return html;
 }
 
+function diveSafetyShort(bufferTime) {
+    if (bufferTime > 5) {
+        return "Safe";
+    } else if (bufferTime >= 0) {
+        return "Borderline";
+    } else {
+        return "Unsafe";
+    }
+}
+
+// Calculates the buffertime between NDL limit and the divers bottom time.
 function calcBufferTimeByNDL(ndl, bottomTime) {
     if ((bottomTime+5) < ndl) {
         return (ndl - bottomTime);
@@ -190,6 +202,7 @@ const mins = document.getElementById("mins");
 const ndl = document.getElementById("ndl");
 const safeStop = document.getElementById("safeStop");
 const divePlan = document.getElementById("divePlan");
+const bufferTime = document.getElementById("bufferTime");
 const pressGroup = document.getElementById("pressGroup");
 const pressGroup2 = document.getElementById("pressGroup2");
 function updateAllMulti(){
@@ -199,7 +212,9 @@ function updateAllMulti(){
     const pg = getPG(d, time);
     ndl.innerText = "NDL: " + ndlM + " mins";
     safeStop.innerText = "" + safetyStopCheck(d, time);
-    divePlan.innerText = "" + calculateBufferTime(d, time);
+    const bT = calcBufferTimeByNDL(ndlM, time);
+    divePlan.innerText = diveSafetyShort(bT);
+    bufferTime.innerText = bT;
     pressGroup.innerText = pg;
     const surTime = getTimeInMins(Number(hoursSI.value), Number(minsSI.value));
     pressGroup2.innerText = pgTransformer(pg, surTime);
@@ -207,6 +222,7 @@ function updateAllMulti(){
 //Updates EVERYTHING for the Multi Dive Screen (Dive 2 section)
 const ndlNew = document.getElementById("ndlNew");
 const dive2Plan = document.getElementById("dive2Plan");
+const bufferTime2 = document.getElementById("bufferTime2");
 const fPG = document.getElementById("finalPG");
 function updateDive2Info(){
     const d = Number(depthM.value);
@@ -219,7 +235,9 @@ function updateDive2Info(){
     const nrt = calcRNT(pg2, d2)
     const ndl2 = newNDL(d2, nrt);
     ndlNew.innerText = "Adjusted NDL: " + ndl2 + " mins";
-    dive2Plan.innerText = "" + calcBufferTimeByNDL(ndl2, time2);
+    const bT = calcBufferTimeByNDL(ndl2, time2);
+    dive2Plan.innerText = diveSafetyShort(bT);
+    bufferTime2.innerText = bT;
     fPG.innerText = finalPG(d2,nrt,time2);
 }
 depthM.addEventListener("input", updateAllMulti);
