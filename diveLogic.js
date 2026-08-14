@@ -226,6 +226,7 @@ const ndlNew = document.getElementById("ndlNew");
 const dive2Plan = document.getElementById("dive2Plan");
 const bufferTime2 = document.getElementById("bufferTime2");
 const fPG = document.getElementById("finalPG");
+const ssLabel2 = document.getElementById("ssLabel2");
 function updateDive2Info(){
     const d = Number(depthM.value);
     const time = Number(mins.value);
@@ -240,7 +241,9 @@ function updateDive2Info(){
     const bT = calcBufferTimeByNDL(ndl2, time2);
     dive2Plan.innerText = diveSafetyShort(bT);
     bufferTime2.innerText = bT;
-    fPG.innerText = finalPG(d2,nrt,time2);
+    pgF = finalPG(d2,nrt,time2);
+    fPG.innerText = pgF
+    ssLabel2 = safetyStopDive2(pg2, pgF, d2);
 }
 depthM.addEventListener("input", updateAllMulti);
 mins.addEventListener("input", updateAllMulti);
